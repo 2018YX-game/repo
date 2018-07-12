@@ -11,7 +11,8 @@ environment:
   matrix:
   - QT5: C:\Qt\5.11\mingw53_32
     MINGW: C:\Qt\Tools\mingw530_32
-    
+  my_variable:
+    secure: nXdFt2hl8q6PP7phIGeBLNlvRW0zziAAxv7DgKsxfFnHY7eenEfAEdkDxZ94OYaq
 install:
   - set QTDIR=C:\Qt\5.11\msvc2017_64
   - set PATH=%QTDIR%\bin;C:\Qt\Tools\mingw530_32\bin;%PATH%;
