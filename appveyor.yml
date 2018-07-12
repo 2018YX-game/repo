@@ -32,7 +32,8 @@ build_script:
   - cd %APPVEYOR_BUILD_FOLDER%\game
   - '%make%'
   # Also, build vcxproj (without qt)
-  - if not %cname%==mingw msbuild /m /p:Configuration=%CONFIGURATION% /p:Platform=%ARCH% pointing.vcxproj /p:PlatformToolset=%PT% /t:Rebuild
+ 
+ # - if not %cname%==mingw msbuild /m /p:Configuration=%CONFIGURATION% /p:Platform=%ARCH% pointing.vcxproj /p:PlatformToolset=%PT% /t:Rebuild
 
 test_script:
   - cd %APPVEYOR_BUILD_FOLDER%\tests
