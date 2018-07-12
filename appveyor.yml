@@ -35,4 +35,17 @@ build_script:
   
 artifacts:
   - path: game\release\*.exe
+  name:release
+  
+
+deploy:
+  provider: GitHub
+  description: ' '
+  auth_token:
+    secure: 1vbYnOqPSwGGrdEugnxf2n8Ksl40bpEBfuprKb9oMMDFsSG7sRcpdyUveVHw2VaP
+  artifact: release
+ 
+  
+  
+  
 
