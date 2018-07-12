@@ -32,7 +32,7 @@ build_script:
   - cd game
   - '%make%'
 artifacts:
-  - path: %APPVEYOR_BUILD_FOLDER%\game\*.exe
+  - path: $(%APPVEYOR_BUILD_FOLDER%)\game\*.exe
   - path: win32.zip
     type: zip
     
