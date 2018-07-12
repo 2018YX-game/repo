@@ -1,34 +1,14 @@
-environment:
-  matrix:
-    - QTDIR: C:\Qt\5.9\mingw53_32
-      MINGW: C:\Qt\Tools\mingw53_32
-    - QTDIR: C:\Qt\5.9\msvc2015_64
-
-configuration:
-  - debug
-  - release
-
-# Get the project submodules
-# Set the environment variables and paths to make
-install:
-  - git submodule update --init --recursive
-  - call "%QTDIR%\bin\qtenv2.bat"
-  - set PATH=%PATH%;%QTDIR%\bin;%MINGW%\bin
-  - if %QTDIR:msvc=%==%QTDIR% set make=mingw32-make.exe
-  - if %QTDIR:_64=%==%QTDIR% ( set ARCH=x86 ) else set ARCH=x64
-  - if not %QTDIR:msvc2015=%==%QTDIR% call "%ProgramFiles(x86)%\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %ARCH%
-  - if not %QTDIR:msvc2017=%==%QTDIR% call "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" %ARCH%
-  - if not %QTDIR:msvc=%==%QTDIR% set make=nmake.exe
-  - if not %QTDIR:msvc=%==%QTDIR% %make% /? > nul
-
-# Run qmake
+image:
+  - Visual Studio 2015
+  
 before_build:
-  - cd %APPVEYOR_BUILD_FOLDER%
+  - call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" x86
+  - set PATH=C:\Qt\5.9\msvc2015\bin;%PATH%
+
+build_script:
   - cd game
   - qmake untitled.pro
+  - nmake
 
-# Build the projects
-build_script:
-  - cd %APPVEYOR_BUILD_FOLDER%
-  - cd game
-  - '%make%'
+test_script:
+  - .\Release\untitled.exe
