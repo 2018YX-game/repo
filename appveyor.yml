@@ -31,14 +31,18 @@ build_script:
   - cd %APPVEYOR_BUILD_FOLDER%
   - cd game
   - '%make%'
-  
+artifacts:
+  - path: %APPVEYOR_BUILD_FOLDER%\game\*.exe
+  - path: win32.zip
+    type: zip
+    
 deploy:
   release: myproduct-v$(appveyor_build_version)
   description: 'Release description'
   provider: GitHub
   auth_token:
     secure: 1vbYnOqPSwGGrdEugnxf2n8Ksl40bpEBfuprKb9oMMDFsSG7sRcpdyUveVHw2VaP # your encrypted token from GitHub
-  artifact: %APPVEYOR_BUILD_FOLDER%/game/.*\.exe/            # upload all NuGet packages to release assets
+  artifact: win32.zip            # upload all NuGet packages to release assets
   draft: false
   prerelease: false
   on:
