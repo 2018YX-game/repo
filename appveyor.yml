@@ -1,43 +1,37 @@
 environment:
   matrix:
-    - QTDIR: C:\Qt\5.6\msvc2015_64
-      cname: Win64-VS2015
-      VSVER: 14.0
-      PT: v140
-    - QTDIR: C:\Qt\5.6\msvc2015
-      cname: Win32-VS2015
-      VSVER: 14.0
-      PT: v140
+    # Tip: sed -nre 's|.*Qt/.*/|    - QTDIR: &|p' | tr '/' '\' | sort -nt. -k1.20,1 -k2,2 -k3
+
+    - QTDIR: C:\Qt\5.10.1\mingw53_32
+    - QTDIR: C:\Qt\5.10.1\msvc2013_64
+    - QTDIR: C:\Qt\5.10.1\msvc2015
+    - QTDIR: C:\Qt\5.10.1\msvc2015_64
 
 configuration:
+  - debug
   - release
 
 install:
+  - C:\cygwin\bin\find C:\Qt -maxdepth 2 -type d
   - '%QTDIR%\bin\qtenv2.bat'
   - qmake -v
   - if %QTDIR:_64=%==%QTDIR% ( set ARCH=x86 ) else set ARCH=x64
-  - if %cname%==mingw set make=mingw32-make.exe
-  - if %cname%==mingw g++ --version
-  - if %cname%==mingw %make% --version
-  - if not %cname%==mingw call "%ProgramFiles(x86)%\Microsoft Visual Studio %VSVER%\VC\vcvarsall.bat" %ARCH%
-  - if not %cname%==mingw set make=nmake.exe
-  - if not %cname%==mingw %make% /? > nul
+  - if %QTDIR:msvc=%==%QTDIR% g++ --version
+  - if %QTDIR:msvc=%==%QTDIR% set make=mingw32-make.exe
+  - if %QTDIR:msvc=%==%QTDIR% %make% --version
+  - if not %QTDIR:msvc2013=%==%QTDIR% call "%ProgramFiles(x86)%\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" %ARCH%
+  - if not %QTDIR:msvc2015=%==%QTDIR% call "%ProgramFiles(x86)%\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %ARCH%
+  - if not %QTDIR:msvc=%==%QTDIR% set make=nmake.exe
+  - if not %QTDIR:msvc=%==%QTDIR% %make% /? > nul
 
 before_build:
-  - if %cname%==mingw set PATH=%PATH%;%QTDIR%\bin;C:\MinGW\bin;C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\shared
-  - cd %APPVEYOR_BUILD_FOLDER%\game
-  - qmake -Wall -Wlogic -Wparser CONFIG+=%CONFIGURATION%
+  # Prepare the out-of-source build directory.
+  - mkdir %APPVEYOR_BUILD_FOLDER%-build
+  - cd %APPVEYOR_BUILD_FOLDER%-build
+  - qmake -r -Wall -Wlogic -Wparser CONFIG+=%CONFIGURATION% %APPVEYOR_BUILD_FOLDER%
 
 build_script:
-  - cd %APPVEYOR_BUILD_FOLDER%\game
   - '%make%'
-  # Also, build vcxproj (without qt)
- 
- # - if not %cname%==mingw msbuild /m /p:Configuration=%CONFIGURATION% /p:Platform=%ARCH% pointing.vcxproj /p:PlatformToolset=%PT% /t:Rebuild
-
-test_script:
-  - cd %APPVEYOR_BUILD_FOLDER%\tests
-  - qmake -Wall -Wlogic -Wparser CONFIG+=%CONFIGURATION%
-  - '%make% check -s'
-
+  - cd %APPVEYOR_BUILD_FOLDER%-build/pkg/nsis
+  - '%make% nsis'
 
