@@ -34,6 +34,5 @@ build_script:
   - '%make%'
   
 artifacts:
-  - path: game\*.exe
-  - path: win32.zip
-    type: zip
+  - path: game\release\*.exe
+
