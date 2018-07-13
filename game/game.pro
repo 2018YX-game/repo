@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = startpage
+TARGET = SameWorld
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -24,11 +24,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        main.cpp \
-        startpage.cpp
+    APP/main.cpp \
+    WINDOW/startpage.cpp
 
 HEADERS += \
-        startpage.h
+    common/etlbase.h \
+    WINDOW/startpage.h
 
 FORMS += \
-        startpage.ui
+    WINDOW/startpage.ui

@@ -1,4 +1,4 @@
-#include "startpage.h"
+#include "../WINDOW/startpage.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])

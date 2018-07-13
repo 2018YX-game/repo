@@ -1,4 +1,4 @@
-#include "startpage.h"
+#include "../WINDOW/startpage.h"
 #include "ui_startpage.h"
 
 startpage::startpage(QWidget *parent) :
