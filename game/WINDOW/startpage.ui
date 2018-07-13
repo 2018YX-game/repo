@@ -14,7 +14,7 @@
    <string>startpage</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="startbutton">
     <property name="geometry">
      <rect>
       <x>137</x>
@@ -27,7 +27,7 @@
      <string>开始游戏</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="quitbutton">
     <property name="geometry">
      <rect>
       <x>140</x>
