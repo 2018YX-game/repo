@@ -13,12 +13,14 @@ startpage::~startpage()
     delete ui;
 }
 
-void startpage::on_pushButton_2_clicked()
+
+
+void startpage::on_startbutton_clicked()
 {
 
 }
 
-void startpage::on_pushButton_clicked()
+void startpage::on_quitbutton_clicked()
 {
 
 }
