@@ -43,7 +43,6 @@ after_build:
 
 artifacts:
   - path: game\release
-  type: zip
   
 
 
