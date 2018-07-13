@@ -38,7 +38,7 @@ after_build:
   - cd %APPVEYOR_BUILD_FOLDER%
   - cd game\release
   - dir
-  - windeployqt game.exe
+  - windeployqt SameWorld.exe
   
 
 artifacts:
