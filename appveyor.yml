@@ -36,7 +36,7 @@ build_script:
   
 after_build:
   - cd %APPVEYOR_BUILD_FOLDER%
-  - cd game
+  - cd game\release
   - dir
   - windeployqt game.exe
   
