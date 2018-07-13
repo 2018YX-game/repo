@@ -33,8 +33,15 @@ build_script:
   - cd game
   - '%make%'
   
+  
+after_build:
+  - cd %APPVEYOR_BUILD_FOLDER%
+  - cd game
+  - windeployqt game.exe
+  
+
 artifacts:
-  - path: game\release\*.exe
+  - path: game\release
   
 
 
