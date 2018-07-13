@@ -22,5 +22,5 @@ void startpage::on_startbutton_clicked()
 
 void startpage::on_quitbutton_clicked()
 {
-
+    qApp->exit(0);
 }
