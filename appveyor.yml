@@ -1,91 +1,26 @@
-environment:
-  matrix:
-  - QTDIR: C:\Qt\5.10.1\mingw53_32
+branches:
+  only:
+    - master
 
 install:
-  - cd %APPVEYOR_BUILD_FOLDER%
-  - cd game
-  - '%QTDIR%\bin\qtenv2.bat'
+  - set QTDIR=C:\Qt\5.8\mingw53_32
+  - choco install -y InnoSetup
+  - set PATH=%QTDIR%\bin;C:\Qt\Tools\mingw530_32\bin;%PATH%;"C:\Program Files (x86)\Inno Setup 5"
 
 build_script:
-  - if "%APPVEYOR_REPO_TAG%"=="false" set VERSION=branch-%APPVEYOR_REPO_BRANCH%
-  - if "%APPVEYOR_REPO_TAG%"=="false" set INSTVERSION=%APPVEYOR_REPO_BRANCH%
-  - if "%APPVEYOR_REPO_TAG%"=="false" if "%APPVEYOR_REPO_BRANCH%"=="master" set INSTVERSION=9999.0
-  - if "%APPVEYOR_REPO_TAG%"=="false" set WINVERSION=%INSTVERSION%.0.%APPVEYOR_BUILD_NUMBER%
-  - if "%APPVEYOR_REPO_TAG%"=="true" set VERSION=%APPVEYOR_REPO_TAG_NAME%
-  - if "%APPVEYOR_REPO_TAG%"=="true" set INSTVERSION=%VERSION:~1%
-  - if "%APPVEYOR_REPO_TAG%"=="true" set WINVERSION=%VERSION:~1%.%APPVEYOR_BUILD_NUMBER%
-  - set DIST=redtimer-%VERSION%-win32
-  - set DATE=%date:~10,4%-%date:~4,2%-%date:~7,2%
-  - echo %VERSION%
-  - echo %INSTVERSION%
-  - echo %DIST%
-  - echo %DATE%
   - cd %APPVEYOR_BUILD_FOLDER%
   - cd game
-  - sed -i "s/VERSION = 1.0.0.0/VERSION = %WINVERSION%/" untitled.pro
-  - qmake -r
+  - qmake untitled.pro
   - mingw32-make
-
 after_build:
-  # Variables
-  - set BUILD=%APPVEYOR_BUILD_FOLDER%\game\
-  - echo %BUILD%
-  # Create directories
-  - mkdir %DIST%
-  - mkdir %DIST%\iconengines
-  - mkdir %DIST%\imageformats
-  - mkdir %DIST%\platforms
-  - mkdir %DIST%\QtQuick
-  - mkdir %DIST%\QtQuick.2
-  # Copy redtimer, redtimercli and qtredmine
-  - xcopy %BUILD%\release\untitled.exe %DIST%
-  # Copy SSL libraries
-  - 7z x deploy\openssl-*-win32.zip -oopenssl
-  - xcopy openssl\libeay32.dll %DIST%
-  - xcopy openssl\ssleay32.dll %DIST%
-  # Copy Qt libraries
-  - xcopy %QTDIR%\bin\libEGL.dll %DIST%
-  - xcopy %QTDIR%\bin\libgcc_s_dw2-1.dll %DIST%
-  - xcopy %QTDIR%\bin\libGLESv2.dll %DIST%
-  - xcopy %QTDIR%\bin\libstdc++-6.dll %DIST%
-  - xcopy %QTDIR%\bin\libwinpthread-1.dll %DIST%
-  - xcopy %QTDIR%\bin\Qt5Core.dll %DIST%
-  - xcopy %QTDIR%\bin\Qt5Gui.dll %DIST%
-  - xcopy %QTDIR%\bin\Qt5Network.dll %DIST%
-  - xcopy %QTDIR%\bin\Qt5Qml.dll %DIST%
-  - xcopy %QTDIR%\bin\Qt5Quick.dll %DIST%
-  - xcopy %QTDIR%\bin\Qt5Svg.dll %DIST%
-  - xcopy %QTDIR%\bin\Qt5Widgets.dll %DIST%
-  # Copy Qt plugins
-  - xcopy %QTDIR%\plugins\iconengines\qsvgicon.dll %DIST%\iconengines
-  - xcopy %QTDIR%\plugins\imageformats\qsvg.dll %DIST%\imageformats
-  - xcopy %QTDIR%\plugins\platforms\qwindows.dll %DIST%\platforms
-  # Copy Qt QML modules
-  - xcopy %QTDIR%\qml\QtQuick\*.* %DIST%\QtQuick\*.* /s /e /c /y
-  - xcopy %QTDIR%\qml\QtQuick.2\*.* %DIST%\QtQuick.2\*.* /s /e /c /y
-  # Copy D3D library required for some graphics drivers
-  - xcopy C:\Qt\Tools\QtCreator\bin\d3dcompiler_47.dll %DIST%
-  # Remove debug DLLs
-  - for /f %%i in ('dir /s /b %DIST%\QtQuick\*d.dll') do del %%i
-  - for /f %%i in ('dir /s /b %DIST%\QtQuick.2\*d.dll') do del %%i
-  #
-  # Create and push the archive for the portable version
-  #
-  - 7z a -tzip -mx=9 %DIST%-portable.zip %DIST%
-  - appveyor PushArtifact %DIST%-portable.zip
-  #
-  # Create the Qt Installer Framework version
-
+  - cd %APPVEYOR_BUILD_FOLDER%
+  - cd game
+  - lrelease untitled.pro
+  - windeployqt release/untitled.exe
+  - cp -r release .
+  - dir
 
 artifacts:
-  - name: portable
-    path: $(DIST)-portable.zip
-
-deploy:
-  - provider: GitHub
-    release: $(VERSION)
-    auth_token:
-      secure: ZUc8vdcr9GvoW987f+m2L364JHu2b1ScdHVGiAFfOrR1fUfafKI6j7rT9MEe/vWG
-    on:
-      appveyor_repo_tag: true
+  - path: game\Output\untitled-*.exe
+  - path: game\untitled-win32.zip
+    type: zip
