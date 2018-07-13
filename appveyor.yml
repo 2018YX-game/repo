@@ -23,7 +23,7 @@ build_script:
   - echo %DATE%
   - cd %APPVEYOR_BUILD_FOLDER%
   - cd game
-  - sed -i "s/VERSION = 1.0.0.0/VERSION = %WINVERSION%/" gui\redtimer.pro
+  - sed -i "s/VERSION = 1.0.0.0/VERSION = %WINVERSION%/" untitled.pro
   - qmake -r
   - mingw32-make
 
