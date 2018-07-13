@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>startpage</class>
+ <widget class="QMainWindow" name="startpage">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,46 +11,46 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>startpage</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>80</y>
+      <x>137</x>
+      <y>72</y>
       <width>101</width>
-      <height>41</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
-     <string>start</string>
+     <string>开始游戏</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>150</y>
+      <x>140</x>
+      <y>140</y>
       <width>101</width>
-      <height>41</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="text">
-     <string>quit</string>
+     <string>退出游戏</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>20</y>
-      <width>171</width>
+      <x>131</x>
+      <y>14</y>
+      <width>131</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>        游戏开始界面</string>
+     <string>游戏开始界面</string>
     </property>
    </widget>
   </widget>
