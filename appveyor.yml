@@ -24,7 +24,7 @@ install:
 before_build:
   - cd %APPVEYOR_BUILD_FOLDER%
   - cd game
-  - qmake untitled.pro
+  - qmake game.pro
 
 
 # Build the projects
