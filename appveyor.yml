@@ -35,14 +35,15 @@ build_script:
   
   
 after_build:
-  - cd %APPVEYOR_BUILD_FOLDER%
-  - cd game\release
-  - dir
+  - cd %APPVEYOR_BUILD_FOLDER%\game
+  - mkdir release2
+  - cd release2
+  - xcopy %APPVEYOR_BUILD_FOLDER%\game\release\SameWorld.exe %APPVEYOR_BUILD_FOLDER%\game\release2\
   - windeployqt SameWorld.exe
   
 
 artifacts:
-  - path: game\release
+  - path: game\release2
   
 
 
