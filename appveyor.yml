@@ -1,26 +1,45 @@
-branches:
-  only:
-    - master
+environment:
+  matrix:
+    - QTDIR: C:\Qt\5.9\mingw53_32
+      MINGW: C:\Qt\Tools\mingw53_32
+    - QTDIR: C:\Qt\5.9\msvc2015_64
 
+configuration:
+  - release
+
+# Get the project submodules
+# Set the environment variables and paths to make
 install:
-  - set QTDIR=C:\Qt\5.8\mingw53_32
-  - choco install -y InnoSetup
-  - set PATH=%QTDIR%\bin;C:\Qt\Tools\mingw530_32\bin;%PATH%;"C:\Program Files (x86)\Inno Setup 5"
+  - git submodule update --init --recursive
+  - call "%QTDIR%\bin\qtenv2.bat"
+  - set PATH=%PATH%;%QTDIR%\bin;%MINGW%\bin
+  - if %QTDIR:msvc=%==%QTDIR% set make=mingw32-make.exe
+  - if %QTDIR:_64=%==%QTDIR% ( set ARCH=x86 ) else set ARCH=x64
+  - if not %QTDIR:msvc2015=%==%QTDIR% call "%ProgramFiles(x86)%\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %ARCH%
+  - if not %QTDIR:msvc2017=%==%QTDIR% call "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" %ARCH%
+  - if not %QTDIR:msvc=%==%QTDIR% set make=nmake.exe
+  - if not %QTDIR:msvc=%==%QTDIR% %make% /? > nul
 
-build_script:
+# Run qmake
+before_build:
   - cd %APPVEYOR_BUILD_FOLDER%
   - cd game
   - qmake untitled.pro
-  - mingw32-make
-after_build:
+
+
+# Build the projects
+build_script:
   - cd %APPVEYOR_BUILD_FOLDER%
   - cd game
-  - lrelease untitled.pro
-  - windeployqt release/untitled.exe
-  - cp -r release .
-  - dir
-
+  - '%make%'
+  
 artifacts:
-  - path: game\Output\untitled-*.exe
-  - path: game\untitled-win32.zip
-    type: zip
+  - path: game\release\*.exe
+  
+
+
+ 
+  
+  
+  
+
