@@ -1,9 +1,9 @@
-#ifndef CIRCLEPOINT_H
-#define CIRCLEPOINT_H
+#ifndef SWMATRIX_H
+#define SWMATRIX_H
 
 #include <vector>
 
-class circlePoint
+class SWPoint
 {
 private:
     bool color;
@@ -41,15 +41,15 @@ public:
     }
 };
 
-class gameMap
+class SWMatrix
 {
 private:
     int row;
     int col;
-    vector<circlePoint> sameWorldMatrix;
+    vector<SWPoint> sameWorldMatrix;
 public:
-    gameMap(){}
-    ~gameMap(){}
+    SWMatrix(){}
+    ~SWMatrix(){}
     void initialMatrix(int givenRow, int givenCol){
         row = givenRow;
         col = givenCol;
@@ -67,12 +67,9 @@ public:
         int index = (pointRow - 1) * col + pointCol - 1;
         sameWorldMatrix[index].setIsMoveOn(givenIsMoveOn);
     }
-    circlePoint& getMatrixPoint(int pointRow, int pointCol) const{
+    SWPoint& getMatrixPoint(int pointRow, int pointCol) const{
         int index = (pointRow - 1) * col + pointCol - 1;
         return sameWorldMatrix[index];
-    }
-    int getMatrixSize() const{
-        return sameWorldMatrix.size();
     }
     int getMatrixRow() const{
         return row;
@@ -84,4 +81,4 @@ public:
 
 
 
-#endif // CIRCLEPOINT_H
+#endif // SWMATRIX_H
