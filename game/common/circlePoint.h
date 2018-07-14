@@ -1,6 +1,8 @@
 #ifndef CIRCLEPOINT_H
 #define CIRCLEPOINT_H
 
+#include <vector>
+
 class circlePoint
 {
 private:
@@ -36,6 +38,42 @@ public:
     }
     bool getIsMoveOn() const {
         return isMoveOn;
+    }
+};
+
+class matrix
+{
+private:
+    int row;
+    int col;
+    vector<circlePoint> sameWorldMatrix;
+public:
+    matrix(){}
+    ~matrix(){
+        sameWorldMatrix.~ vector<circlePoint>();
+    }
+    void initialMatrix(int givenRow, int givenCol){
+        row = givenRow;
+        col = givenCol;
+        for(int i=0;i<row * col;i++){
+            sameWorldMatrix.push_back(circlePoint());
+        }
+    }
+    void setMatrixPointColor(int pointRow, int pointCol, bool givenColor){
+        int index = (pointRow - 1) * col + pointCol - 1;
+        sameWorldMatrix[index].setColor(givenColor);
+    }
+    void setMatrixPointIsStart(int pointRow, int pointCol, bool givenIsStart){
+        int index = (pointRow - 1) * col + pointCol - 1;
+        sameWorldMatrix[index].setIsStart(givenIsStart);
+    }
+    void setMatrixPointIsMoveOn(int pointRow, int pointCol, bool givenIsMoveOn){
+        int index = (pointRow - 1) * col + pointCol - 1;
+        sameWorldMatrix[index].setIsMoveOn(givenIsMoveOn);
+    }
+    circlePoint getMatrixPoint(int pointRow, int pointCol){
+        int index = (pointRow - 1) * col + pointCol - 1;
+        return sameWorldMatrix[index];
     }
 };
 
