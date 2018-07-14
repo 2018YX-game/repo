@@ -67,7 +67,7 @@ public:
         int index = (pointRow - 1) * col + pointCol - 1;
         sameWorldMatrix[index].setIsMoveOn(givenIsMoveOn);
     }
-    SWPoint& getMatrixPoint(int pointRow, int pointCol) const{
+    SWPoint& getMatrixPoint(int pointRow, int pointCol) {
         int index = (pointRow - 1) * col + pointCol - 1;
         return sameWorldMatrix[index];
     }
