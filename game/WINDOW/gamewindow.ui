@@ -26,16 +26,6 @@
     <string>返回开始界面</string>
    </property>
   </widget>
-  <widget class="QTableView" name="tableView">
-   <property name="geometry">
-    <rect>
-     <x>5</x>
-     <y>51</y>
-     <width>391</width>
-     <height>251</height>
-    </rect>
-   </property>
-  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
