@@ -25,11 +25,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     APP/main.cpp \
-    WINDOW/startpage.cpp
+    WINDOW/startpage.cpp \
+    WINDOW/gamewindow.cpp
 
 HEADERS += \
     common/etlbase.h \
-    WINDOW/startpage.h
+    WINDOW/startpage.h \
+    WINDOW/gamewindow.h
 
 FORMS += \
-    WINDOW/startpage.ui
+    WINDOW/startpage.ui \
+    WINDOW/gamewindow.ui
