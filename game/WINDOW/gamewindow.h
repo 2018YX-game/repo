@@ -1,6 +1,6 @@
 #ifndef GAMEWINDOW_H
 #define GAMEWINDOW_H
-#include"SWMatrix.h"
+#include"../common/SWMatrix.h"
 #include"memory"
 #include <QWidget>
 #include<qpainter.h>

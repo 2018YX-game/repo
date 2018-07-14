@@ -1,6 +1,6 @@
 #ifndef STARTPAGE_H
 #define STARTPAGE_H
-
+#include "gamewindow.h"
 #include <QMainWindow>
 
 namespace Ui {
@@ -24,6 +24,7 @@ private slots:
 
 private:
     Ui::startpage *ui;
+    gamewindow *gameui;
 };
 
 #endif // STARTPAGE_H
