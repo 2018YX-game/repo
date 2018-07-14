@@ -41,23 +41,19 @@ public:
     }
 };
 
-class matrix
+class gameMap
 {
 private:
     int row;
     int col;
     vector<circlePoint> sameWorldMatrix;
 public:
-    matrix(){}
-    ~matrix(){
-        sameWorldMatrix.~ vector<circlePoint>();
-    }
+    gameMap(){}
+    ~gameMap(){}
     void initialMatrix(int givenRow, int givenCol){
         row = givenRow;
         col = givenCol;
-        for(int i=0;i<row * col;i++){
-            sameWorldMatrix.push_back(circlePoint());
-        }
+        sameWorldMatrix.resize(row * col);
     }
     void setMatrixPointColor(int pointRow, int pointCol, bool givenColor){
         int index = (pointRow - 1) * col + pointCol - 1;
@@ -71,9 +67,18 @@ public:
         int index = (pointRow - 1) * col + pointCol - 1;
         sameWorldMatrix[index].setIsMoveOn(givenIsMoveOn);
     }
-    circlePoint getMatrixPoint(int pointRow, int pointCol){
+    circlePoint& getMatrixPoint(int pointRow, int pointCol) const{
         int index = (pointRow - 1) * col + pointCol - 1;
         return sameWorldMatrix[index];
+    }
+    int getMatrixSize() const{
+        return sameWorldMatrix.size();
+    }
+    int getMatrixRow() const{
+        return row;
+    }
+    int getMatrixCol() const{
+        return col;
     }
 };
 
