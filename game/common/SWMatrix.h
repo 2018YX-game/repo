@@ -10,17 +10,17 @@ private:
     bool isStart;
     bool isMoveOn;
 public:
-    point(){
+    SWPoint(){
         color = 0;
         isStart = 0;
         isMoveOn = 0;
     }
-    point(bool givenColor, bool givenIsStart, bool givenIsMoveOn){
+    SWPoint(bool givenColor, bool givenIsStart, bool givenIsMoveOn){
         color = givenColor;
         isStart = givenIsStart;
         isMoveOn = givenIsMoveOn;
     }
-    ~point(){}
+    ~SWPoint(){}
     void setColor(bool givenColor){
         color = givenColor;
     }
@@ -46,7 +46,7 @@ class SWMatrix
 private:
     int row;
     int col;
-    vector<SWPoint> sameWorldMatrix;
+   std::vector<SWPoint> sameWorldMatrix;
 public:
     SWMatrix(){}
     ~SWMatrix(){}
