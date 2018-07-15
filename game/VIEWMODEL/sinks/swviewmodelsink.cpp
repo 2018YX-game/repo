@@ -6,5 +6,5 @@ SWViewModelSink::SWViewModelSink(SWViewModel *ptr)
 }
 
 virtual void OnPropertyChanged(const std::string& str){
-
+    ptr_SWViewModel->Fire_OnPropertyChanged(str);
 }

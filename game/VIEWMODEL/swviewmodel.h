@@ -4,7 +4,7 @@
 #include "../MODEL/swmodel.h"
 #include "sinks/swviewmodelsink.h"
 
-class SWViewModel
+class SWViewModel:public Proxy_PropertyNotification<SWViewModel>
 {
 public:
     SWViewModel();
