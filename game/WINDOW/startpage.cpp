@@ -14,12 +14,13 @@ startpage::~startpage()
 }
 
 
+void startpage::set_ptrCommand(std::shared_ptr<ICommandBase> ptrCommand){
+    _ptrCommand=ptrCommand;
+}
 
 void startpage::on_startbutton_clicked()
 {
-    //ui->close();
-    // gameui = new gamewindow();
-    // gameui->show();
+    _ptrCommand->Exec();
 }
 
 void startpage::on_quitbutton_clicked()

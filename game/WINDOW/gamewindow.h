@@ -2,7 +2,8 @@
 #define GAMEWINDOW_H
 #include"../common/SWMatrix.h"
 #include"../common/etlbase.h"
-#include "sinks/gamewindowsink.h"
+#include "sinks/gamewindowprosink.h"
+#include "sinks/gamewindowsetsink.h"
 #include"memory"
 #include <QWidget>
 #include<qpainter.h>
@@ -31,7 +32,7 @@ private slots:
  private:
     Ui::gamewindow *ui;
     std::shared_ptr<SWMatrix> _spMartix;
-    std::shared_ptr<gameWindowSink> _ptrgWindowSink;
+    std::shared_ptr<gameWindowPROSink> _ptrgWindowPROSink;
     std::shared_ptr<ICommandBase> _ptrCommand;
 };
 

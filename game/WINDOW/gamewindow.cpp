@@ -6,12 +6,12 @@ gamewindow::gamewindow(QWidget *parent) :
     ui(new Ui::gamewindow)
 {
     ui->setupUi(this);
-    _ptrgWindowSink= std::make_shared<gameWindowSink>(gameWindowSink(this));
+    _ptrgWindowPROSink= std::make_shared<gameWindowPROSink>(gameWindowPROSink(this));
     set_Martix(NULL);
 }
 std::shared_ptr<IPropertyNotification> gamewindow::getPtrWindowSink(void){
 
-    return std::static_pointer_cast<IPropertyNotification>(_ptrgWindowSink);
+    return std::static_pointer_cast<IPropertyNotification>(_ptrgWindowPROSink);
 }
 
 
@@ -78,5 +78,6 @@ void gamewindow::on_secondButton_clicked()
 
 void gamewindow::on_firstButton_clicked()
 {
-
+    _ptrCommand->SetParameter(_new_any_space_::any_cast<int>(1));
+    _ptrCommand->Exec();
 }
