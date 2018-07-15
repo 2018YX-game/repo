@@ -11,6 +11,8 @@
 #include <xmemory0>
 
 
+
+
 #if !_HAS_STATIC_RTTI
  #error class any requires static RTTI.
 #endif /* _HAS_STATIC_RTTI */
@@ -21,7 +23,11 @@
  #pragma push_macro("new")
  #undef new
 
-_STD_BEGIN
+
+namespace _new_any_space_{
+
+using namespace std;
+
 template <class T> struct in_place_type_t {
         explicit in_place_type_t() = default;
     };
@@ -564,7 +570,7 @@ template<class _Ty> inline
     return (static_cast<_Ty>(_STD move(*_Ptr)));
     }
 
-_STD_END
+}
 
  #pragma pop_macro("new")
  #pragma warning(pop)

@@ -27,7 +27,7 @@ class ICommandBase
 {
 public:
 	//virtual void SetParameter(const std::shared_ptr<ICommandParameter>& param) = 0;
-    virtual void SetParameter(const any& param) = 0;
+    virtual void SetParameter(const _new_any_space_::any& param) = 0;
 	virtual void Exec() = 0;
 /*
 virtual std::shared_ptr<ICommandBase> get_Undo() = 0;
@@ -124,7 +124,7 @@ public:
 class IStateBase
 {
 public:
-    virtual int Process(unsigned int uEvent, any& param) = 0;
+    virtual int Process(unsigned int uEvent, _new_any_space_::any& param) = 0;
 };
 
 class StateManager
@@ -135,7 +135,7 @@ viud Add(int iState, const std::shared_ptr<IStateBase>& spState)
 {
 ...
 }
-void Process(unsigned int uEvent, any& param)
+void Process(unsigned int uEvent, ANY::any& param)
 {
 ...
 }
