@@ -10,7 +10,7 @@ public:
     SWModel();
     ~SWModel();
     std::shared_ptr<SWMatrix> getSWMatrix();
-    void newLayout(int row, int col);
+    void newLayout(int level);
 
 private:
     std::shared_ptr<SWMatrix> sp_SWMatrix;
