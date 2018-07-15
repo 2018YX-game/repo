@@ -2,6 +2,7 @@
 #define SWMODEL_H
 #include "../common/SWMatrix.h"
 #include <memory>
+#include "../common/etlbase.h"
 
 class SWModel: public Proxy_PropertyNotification<SWModel>
 {
