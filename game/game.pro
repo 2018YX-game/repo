@@ -38,8 +38,11 @@ HEADERS += \
     VIEWMODEL/sinks/swviewmodelsink.h \
     VIEWMODEL/swviewmodel.h \
     MODEL/swmodel.h \
-    common/SWMatrix.h
+    common/SWMatrix.h \
+    common/any.h
 
 FORMS += \
     WINDOW/startpage.ui \
     WINDOW/gamewindow.ui
+
+CONFIG += c++17
