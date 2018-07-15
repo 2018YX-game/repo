@@ -1,7 +1,7 @@
 #ifndef SWVIEWMODELSINK_H
 #define SWVIEWMODELSINK_H
 
-#include
+#include "../../common/etlbase.h"
 
 class SWViewModel;
 class SWViewModelSink: public IPropertyNotification

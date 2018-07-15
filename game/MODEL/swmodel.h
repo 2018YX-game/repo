@@ -9,7 +9,7 @@ class SWModel: public Proxy_PropertyNotification<SWModel>
 public:
     SWModel();
     ~SWModel();
-    std::shared_ptr<SWMatrix> getMatrix();
+    std::shared_ptr<SWMatrix> getSWMatrix();
     void newLayout(int row, int col);
 
 private:

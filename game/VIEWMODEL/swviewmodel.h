@@ -2,6 +2,7 @@
 #define SWVIEWMODEL_H
 
 #include "../MODEL/swmodel.h"
+#include "../common/etlbase.h"
 
 class SWViewModelSink;
 class SWViewModel:public Proxy_PropertyNotification<SWViewModel>
