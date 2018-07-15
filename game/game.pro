@@ -26,12 +26,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     APP/main.cpp \
     WINDOW/startpage.cpp \
-    WINDOW/gamewindow.cpp
+    WINDOW/gamewindow.cpp \
+    VIEWMODEL/sinks/swviewmodelsink.cpp \
+    VIEWMODEL/swviewmodel.cpp \
+    MODEL/swmodel.cpp
 
 HEADERS += \
     common/etlbase.h \
     WINDOW/startpage.h \
-    WINDOW/gamewindow.h
+    WINDOW/gamewindow.h \
+    VIEWMODEL/sinks/swviewmodelsink.h \
+    VIEWMODEL/swviewmodel.h \
+    MODEL/swmodel.h \
+    common/SWMatrix.h
 
 FORMS += \
     WINDOW/startpage.ui \
