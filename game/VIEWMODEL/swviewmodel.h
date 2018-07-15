@@ -6,7 +6,7 @@
 
 class SWViewModelSink;
 class layoutCommand;
-class SWViewModel:public Proxy_PropertyNotification<SWViewModel>
+class SWViewModel:public Proxy_PropertyNotification<SWViewModel>, public Proxy_CommandNotification<SWViewModel>
 {
 public:
     SWViewModel();

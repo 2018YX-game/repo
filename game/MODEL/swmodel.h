@@ -4,7 +4,7 @@
 #include <memory>
 #include "../common/etlbase.h"
 
-class SWModel: public Proxy_PropertyNotification<SWModel>
+class SWModel: public Proxy_PropertyNotification<SWModel>, public Proxy_CommandNotification<SWModel>
 {
 public:
     SWModel();
