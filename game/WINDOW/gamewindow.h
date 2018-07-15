@@ -1,7 +1,7 @@
 #ifndef GAMEWINDOW_H
 #define GAMEWINDOW_H
-#include"SWMatrix.h"
-#include"etlbase.h"
+#include"../common/SWMatrix.h"
+#include"../common/etlbase.h"
 #include "sinks/gamewindowsink.h"
 #include"memory"
 #include <QWidget>

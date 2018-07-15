@@ -1,6 +1,6 @@
 #ifndef GAMEWINDOWSINK_H
 #define GAMEWINDOWSINK_H
-#include"../etlbase.h"
+#include"../../common/etlbase.h"
 
 class gamewindow;
 class gameWindowSink: public IPropertyNotification
