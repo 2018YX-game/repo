@@ -69,15 +69,15 @@ public:
     }
     bool getMatrixPointColor(int pointRow, int pointCol){
         int index = (pointRow - 1) * col + pointCol - 1;
-        return sameWorldMatrix[index].color;
+        return sameWorldMatrix[index].getColor();
     }
     bool getMatrixPointIsStart(int pointRow, int pointCol){
         int index = (pointRow - 1) * col + pointCol - 1;
-        return sameWorldMatrix[index].isStart;
+        return sameWorldMatrix[index].getIsStart();
     }
     bool getMatrixPointIsMoveOn(int pointRow, int pointCol){
         int index = (pointRow - 1) * col + pointCol - 1;
-        return sameWorldMatrix[index].isMoveOn;
+        return sameWorldMatrix[index].getIsMoveOn();
     }
     SWPoint& getMatrixPoint(int pointRow, int pointCol) {
         int index = (pointRow - 1) * col + pointCol - 1;
