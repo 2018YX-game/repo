@@ -1,4 +1,5 @@
 #include "swviewmodel.h"
+#include "sinks/swviewmodelsink.h"
 
 SWViewModel::SWViewModel(){
     sp_SWViewModelSink_ = std::make_shared<SWViewModelSink>(this);

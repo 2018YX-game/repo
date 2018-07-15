@@ -1,8 +1,9 @@
 #ifndef SWVIEWMODELSINK_H
 #define SWVIEWMODELSINK_H
 
-#include "../swviewmodel.h"
+#include
 
+class SWViewModel;
 class SWViewModelSink: public IPropertyNotification
 {
 public:
