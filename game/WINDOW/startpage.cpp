@@ -18,8 +18,8 @@ startpage::~startpage()
 void startpage::on_startbutton_clicked()
 {
     //ui->close();
-    gameui = new gamewindow();
-    gameui->show();
+    // gameui = new gamewindow();
+    // gameui->show();
 }
 
 void startpage::on_quitbutton_clicked()
