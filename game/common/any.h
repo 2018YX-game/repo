@@ -102,7 +102,7 @@ struct _Any_small_RTTI
     template<class _Ty>
         static void __CLRCALL_PURE_OR_CDECL _Move_impl(void * const _Target, void * const _Source) _NOEXCEPT
         {	// Implements move for _Ty
-        _Construct_in_place(*static_cast<_Ty *>(_Target), _STD move(*static_cast<_Ty *>(_Source)));
+        _Construct_in_place(*static_cast<_Ty *>(_Target),   move(*static_cast<_Ty *>(_Source)));
         }
 
     _Destroy_fn * _Destroy;
@@ -161,7 +161,7 @@ public:
         >, int> = 0>
         any(_ValueType&& _Value)
         {	// initialize with _Value
-        _Emplace<decay_t<_ValueType>>(_STD forward<_ValueType>(_Value));
+        _Emplace<decay_t<_ValueType>>(  forward<_ValueType>(_Value));
         }
 
     template<class _ValueType,
@@ -170,7 +170,7 @@ public:
             && is_copy_constructible_v<decay_t<_ValueType>>, int> = 0>
         explicit any(in_place_type_t<_ValueType>, _Types&&... _Args)
         {	// in-place initialize a value of type decay_t<_ValueType> with _Args...
-        _Emplace<decay_t<_ValueType>>(_STD forward<_Types>(_Args)...);
+        _Emplace<decay_t<_ValueType>>(  forward<_Types>(_Args)...);
         }
 
     template<class _ValueType,
@@ -180,7 +180,7 @@ public:
             && is_copy_constructible_v<decay_t<_ValueType>>, int> = 0>
         explicit any(in_place_type_t<_ValueType>, initializer_list<_Elem> _Ilist, _Types&&... _Args)
         {	// in-place initialize a value of type decay_t<_ValueType> with _Ilist and _Args...
-        _Emplace<decay_t<_ValueType>>(_Ilist, _STD forward<_Types>(_Args)...);
+        _Emplace<decay_t<_ValueType>>(_Ilist,   forward<_Types>(_Args)...);
         }
 
     ~any() _NOEXCEPT
@@ -209,7 +209,7 @@ public:
         >, int> = 0>
         any& operator=(_ValueType&& _Value)
         {	// replace contained value with an object of type decay_t<_ValueType> initialized from _Value
-        *this = any{_STD forward<_ValueType>(_Value)};
+        *this = any{  forward<_ValueType>(_Value)};
         return (*this);
         }
 
@@ -221,7 +221,7 @@ public:
         decay_t<_ValueType>& emplace(_Types&&... _Args)
         {	// replace contained value with an object of type decay_t<_ValueType> initialized from _Args...
         reset();
-        return (_Emplace<decay_t<_ValueType>>(_STD forward<_Types>(_Args)...));
+        return (_Emplace<decay_t<_ValueType>>(  forward<_Types>(_Args)...));
         }
     template<class _ValueType,
         class _Elem,
@@ -231,7 +231,7 @@ public:
         decay_t<_ValueType>& emplace(initializer_list<_Elem> _Ilist, _Types&&... _Args)
         {	// replace contained value with an object of type decay_t<_ValueType> initialized from _Ilist and _Args...
         reset();
-        return (_Emplace<decay_t<_ValueType>>(_Ilist, _STD forward<_Types>(_Args)...));
+        return (_Emplace<decay_t<_ValueType>>(_Ilist,   forward<_Types>(_Args)...));
         }
 
     void reset() _NOEXCEPT
@@ -253,7 +253,7 @@ public:
 
     void swap(any& _That) _NOEXCEPT
         {	// exchange the values of *this and _That
-        _That = _STD exchange(*this, _STD move(_That));
+        _That =   exchange(*this,   move(_That));
         }
 
     // Observers [any.observers]
@@ -331,14 +331,14 @@ private:
         static_assert(alignof(_Decayed) <= alignof(max_align_t),
             "Sorry: std::any doesn't support over-aligned types at this time.");
         return (_Emplace1<_Decayed>(_Any_is_small<_Decayed>{}, _Any_is_trivial<_Decayed>{},
-            _STD forward<_Types>(_Args)...));
+              forward<_Types>(_Args)...));
         }
 
     template<class _Decayed,
         class... _Types>
         _Decayed& _Emplace1(false_type, false_type, _Types&&... _Args)
         {	// emplace construct _Decayed using the _Big representation
-        _Decayed * const _Ptr = ::new _Decayed(_STD forward<_Types>(_Args)...);
+        _Decayed * const _Ptr = ::new _Decayed(  forward<_Types>(_Args)...);
         _BigPointer() = _Ptr;
         _BigRTTI() = &_Any_big_RTTI_obj<_Decayed>;
         _TypeData() = reinterpret_cast<uintptr_t>(&typeid(_Decayed))
@@ -351,7 +351,7 @@ private:
         _Decayed& _Emplace1(true_type, false_type, _Types&&... _Args)
         {	// emplace construct _Decayed using the _Small representation
         auto& _Obj = reinterpret_cast<_Decayed&>(_Storage._SmallStorage._Data);
-        _Construct_in_place(_Obj, _STD forward<_Types>(_Args)...);
+        _Construct_in_place(_Obj,   forward<_Types>(_Args)...);
         _SmallRTTI() = &_Any_small_RTTI_obj<_Decayed>;
         _TypeData() = reinterpret_cast<uintptr_t>(&typeid(_Decayed))
             | static_cast<uintptr_t>(_Any_representation::_Small);
@@ -363,7 +363,7 @@ private:
         _Decayed& _Emplace1(_Any_tag, true_type, _Types&&... _Args)
         {	// emplace construct _Decayed using the _Trivial representation
         auto& _Obj = reinterpret_cast<_Decayed&>(_Storage._TrivialData);
-        _Construct_in_place(_Obj, _STD forward<_Types>(_Args)...);
+        _Construct_in_place(_Obj,   forward<_Types>(_Args)...);
         _TypeData() = reinterpret_cast<uintptr_t>(&typeid(_Decayed))
             | static_cast<uintptr_t>(_Any_representation::_Trivial);
         return (_Obj);
@@ -473,14 +473,14 @@ template<class _ValueType,
     class... _Types> inline
     any make_any(_Types&&... _Args)
     {	// construct an any containing a _ValueType initialized with _Args...
-    return (any{in_place_type<_ValueType>, _STD forward<_Types>(_Args)...});
+    return (any{in_place_type<_ValueType>,   forward<_Types>(_Args)...});
     }
 template<class _ValueType,
     class _Elem,
     class... _Types> inline
     any make_any(initializer_list<_Elem> _Ilist, _Types&&... _Args)
     {	// construct an any containing a _ValueType initialized with _Ilist and _Args...
-    return (any{in_place_type<_ValueType>, _Ilist, _STD forward<_Types>(_Args)...});
+    return (any{in_place_type<_ValueType>, _Ilist,   forward<_Types>(_Args)...});
     }
 
 template<class _ValueType> inline
@@ -535,7 +535,7 @@ template<class _Ty> inline
     {	// retrieve _Any's contained value as _Ty
     static_assert(is_constructible_v<_Ty, const remove_cv_t<remove_reference_t<_Ty>>&>,
         "any_cast<T>(const any&) requires T to be constructible from const remove_cv_t<remove_reference_t<T>>&");
-    const auto _Ptr = _STD any_cast<remove_cv_t<remove_reference_t<_Ty>>>(&_Any);
+    const auto _Ptr =   any_cast<remove_cv_t<remove_reference_t<_Ty>>>(&_Any);
     if (!_Ptr)
         {
         _THROW(bad_any_cast{});
@@ -548,7 +548,7 @@ template<class _Ty> inline
     {	// retrieve _Any's contained value as _Ty
     static_assert(is_constructible_v<_Ty, remove_cv_t<remove_reference_t<_Ty>>&>,
         "any_cast<T>(any&) requires T to be constructible from remove_cv_t<remove_reference_t<T>>&");
-    const auto _Ptr = _STD any_cast<remove_cv_t<remove_reference_t<_Ty>>>(&_Any);
+    const auto _Ptr =   any_cast<remove_cv_t<remove_reference_t<_Ty>>>(&_Any);
     if (!_Ptr)
         {
         _THROW(bad_any_cast{});
@@ -561,13 +561,13 @@ template<class _Ty> inline
     {	// retrieve _Any's contained value as _Ty
     static_assert(is_constructible_v<_Ty, remove_cv_t<remove_reference_t<_Ty>>>,
         "any_cast<T>(any&&) requires T to be constructible from remove_cv_t<remove_reference_t<T>>");
-    const auto _Ptr = _STD any_cast<remove_cv_t<remove_reference_t<_Ty>>>(&_Any);
+    const auto _Ptr =   any_cast<remove_cv_t<remove_reference_t<_Ty>>>(&_Any);
     if (!_Ptr)
         {
         _THROW(bad_any_cast{});
         }
 
-    return (static_cast<_Ty>(_STD move(*_Ptr)));
+    return (static_cast<_Ty>(  move(*_Ptr)));
     }
 
 }
