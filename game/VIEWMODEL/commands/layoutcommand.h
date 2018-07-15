@@ -2,14 +2,13 @@
 #define LAYOUTCOMMAND_H
 
 #include "../../common/etlbase.h"
-//#include "../swviewmodel.h"
+
 
 class SWViewModel;
-class layoutCommand: public ICommandBase, public ICommandNotification
+class layoutCommand: public ICommandBase
 {
 public:
     layoutCommand(SWViewModel *ptr_SWViewModel);
-    virtual void OnCommandComplete(const std::string& str, bool bOK);
     virtual void SetParameter(const _new_any_space_::any& param);
     virtual void Exec();
 
