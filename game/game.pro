@@ -30,7 +30,8 @@ SOURCES += \
     VIEWMODEL/sinks/swviewmodelsink.cpp \
     VIEWMODEL/swviewmodel.cpp \
     MODEL/swmodel.cpp \
-    WINDOW/sinks/gamewindowsink.cpp
+    WINDOW/sinks/gamewindowsink.cpp \
+    VIEWMODEL/commands/layoutcommand.cpp
 
 HEADERS += \
     common/etlbase.h \
@@ -41,7 +42,8 @@ HEADERS += \
     MODEL/swmodel.h \
     common/SWMatrix.h \
     common/any.h \
-    WINDOW/sinks/gamewindowsink.h
+    WINDOW/sinks/gamewindowsink.h \
+    VIEWMODEL/commands/layoutcommand.h
 
 FORMS += \
     WINDOW/startpage.ui \
