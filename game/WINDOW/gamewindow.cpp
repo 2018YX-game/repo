@@ -13,15 +13,20 @@ std::shared_ptr<IPropertyNotification> gamewindow::getPtrWindowSink(void){
 
     return std::static_pointer_cast<IPropertyNotification>(_ptrgWindowSink);
 }
+
+
+void gamewindow::set_ptrCommand(std::shared_ptr<ICommandBase> ptrCommand){
+    _ptrCommand=ptrCommand;
+}
+
+
+
 gamewindow::~gamewindow()
 {
     delete ui;
 }
 
-void gamewindow::on_returntostartButton_clicked()
-{
 
-}
 void gamewindow::set_Martix(std::shared_ptr<SWMatrix> spMartix){
     this->_spMartix=spMartix;
 }
@@ -65,3 +70,13 @@ void gamewindow::paintEvent(QPaintEvent *)
             }
       }
   }
+
+void gamewindow::on_secondButton_clicked()
+{
+
+}
+
+void gamewindow::on_firstButton_clicked()
+{
+
+}
