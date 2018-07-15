@@ -1,6 +1,6 @@
 environment:
   matrix:
-    - QTDIR: C:\Qt\5.10\msvc2017_64
+    - QTDIR: C:\Qt\5.10\msvc2015_64
     - QTDIR: C:\Qt\5.11\mingw53_32
       MINGW: C:\Qt\Tools\mingw53_32
 
