@@ -1,6 +1,6 @@
 environment:
   matrix:
-    - QTDIR: C:\Qt\5.11\msvc2017
+    - QTDIR: C:\Qt\5.11\msvc2015
       CMD_VCVARSALL: '"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" x86'
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
     - QTDIR: C:\Qt\5.11\msvc2017_64
