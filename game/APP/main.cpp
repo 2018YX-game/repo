@@ -4,7 +4,7 @@
 int main(int argc, char *argv[])//this is submitted by productor
 {
     QApplication a(argc, argv);
-    APP app;
+    GameAPP app;
     app.run();
     return a.exec();
 }

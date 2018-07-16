@@ -1,22 +1,28 @@
 #include <QApplication>
-#include "../APP/app.h"
+#include "app.h"
 
-APP::APP()
+GameAPP::GameAPP(){}
+GameAPP::~GameAPP(){}
+void GameAPP::run()
 {
     model = std::make_shared<SWModel>();
     viewmodel = std::make_shared<SWViewModel>();
 
     viewmodel->setSWModel(model);
 
-    window1.set_ptrCommand(viewmodel->getLayoutCommand());
+
     window2.set_ptrCommand(viewmodel->getLayoutCommand());
     window2.set_Martix(viewmodel->getSWMatrix());
     viewmodel->AddPropertyNotification(window2.getPtrWindowProSink());
     viewmodel->AddCommandNotification(window2.getPtrWindowSetSink());
-}
 
-void APP::run()
-{
+    sp_StartButtonCommand_ = std::make_shared<StartButtonCommand>(this);
+
+    window1.set_ptrCommand(std::static_pointer_cast<ICommandBase>(this->sp_StartButtonCommand_));
     window1.show();
 
+
+
 }
+
+

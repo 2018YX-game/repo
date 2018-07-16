@@ -34,6 +34,7 @@ SOURCES += \
     WINDOW/sinks/gamewindowsetsink.cpp \
     VIEWMODEL/commands/layoutcommand.cpp \
     APP/app.cpp \
+    APP/commands/startbuttoncommand.cpp
 
 HEADERS += \
     common/etlbase.h \
@@ -47,7 +48,8 @@ HEADERS += \
     WINDOW/sinks/gamewindowprosink.h \
     WINDOW/sinks/gamewindowsetsink.h \
     VIEWMODEL/commands/layoutcommand.h \
-    APP/app.h
+    APP/app.h \
+    APP/commands/startbuttoncommand.h
 
 FORMS += \
     WINDOW/startpage.ui \
