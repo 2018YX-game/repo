@@ -9,11 +9,14 @@ gamewindow::gamewindow(QWidget *parent) :
     _ptrgWindowPROSink= std::make_shared<gameWindowPROSink>(gameWindowPROSink(this));
     set_Martix(NULL);
 }
-std::shared_ptr<IPropertyNotification> gamewindow::getPtrWindowSink(void){
+std::shared_ptr<IPropertyNotification> gamewindow::getPtrWindowProSink(void){
 
     return std::static_pointer_cast<IPropertyNotification>(_ptrgWindowPROSink);
 }
+std::shared_ptr<ICommandNotification> gamewindow::getPtrWindowSetSink(void){
 
+    return std::static_pointer_cast<ICommandNotification>(_ptrWindowSetSink);
+}
 
 void gamewindow::set_ptrCommand(std::shared_ptr<ICommandBase> ptrCommand){
     _ptrCommand=ptrCommand;

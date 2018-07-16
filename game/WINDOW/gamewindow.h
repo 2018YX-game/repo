@@ -20,7 +20,8 @@ public:
     ~gamewindow();
     void set_Martix(std::shared_ptr<SWMatrix> spMartix);
     void set_ptrCommand(std::shared_ptr<ICommandBase> ptrCommand);
-    std::shared_ptr<IPropertyNotification> getPtrWindowSink(void);
+    std::shared_ptr<IPropertyNotification> getPtrWindowProSink(void);
+    std::shared_ptr<ICommandNotification> getPtrWindowSetSink(void);
     void paintEvent(QPaintEvent *);
 private slots:
 
@@ -33,6 +34,7 @@ private slots:
     Ui::gamewindow *ui;
     std::shared_ptr<SWMatrix> _spMartix;
     std::shared_ptr<gameWindowPROSink> _ptrgWindowPROSink;
+    std::shared_ptr<gameWindowSETSink> _ptrWindowSetSink;
     std::shared_ptr<ICommandBase> _ptrCommand;
 };
 
