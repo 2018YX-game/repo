@@ -7,8 +7,11 @@ gameWindowSETSink::gameWindowSETSink(gamewindow *ptr)
 void gameWindowSETSink::OnCommandComplete(const std::string& str, bool bOK)
 {
     if(str=="layoutCommand"){
-        if(bOk==false){
-            QMessageBox::information(NULL, str, "Content", QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+        if(bOK==false){
+            QMessageBox MSG;
+            MSG.setWindowTitle(QString("error!"));
+            MSG.exec();
+      //      QMessageBox::information(NULL, str, "Content",QMessageBox::NoButton );
 
         }
     }

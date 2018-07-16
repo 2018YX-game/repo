@@ -2,6 +2,7 @@
 #define GAMEWINDOWSETSINK_H
 
 #include"../../common/etlbase.h"
+#include "qmessagebox.h"
 
 class gamewindow;
 class gameWindowSETSink: public ICommandNotification
