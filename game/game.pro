@@ -32,7 +32,9 @@ SOURCES += \
     MODEL/swmodel.cpp \
     WINDOW/sinks/gamewindowprosink.cpp \
     WINDOW/sinks/gamewindowsetsink.cpp \
-    VIEWMODEL/commands/layoutcommand.cpp
+    VIEWMODEL/commands/layoutcommand.cpp \
+    APP/app.cpp \
+    APP/main.cpp
 
 HEADERS += \
     common/etlbase.h \
@@ -45,7 +47,8 @@ HEADERS += \
     common/any.h \
     WINDOW/sinks/gamewindowprosink.h \
     WINDOW/sinks/gamewindowsetsink.h \
-    VIEWMODEL/commands/layoutcommand.h
+    VIEWMODEL/commands/layoutcommand.h \
+    APP/app.h
 
 FORMS += \
     WINDOW/startpage.ui \
