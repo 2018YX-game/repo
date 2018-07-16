@@ -34,7 +34,6 @@ SOURCES += \
     WINDOW/sinks/gamewindowsetsink.cpp \
     VIEWMODEL/commands/layoutcommand.cpp \
     APP/app.cpp \
-    APP/main.cpp
 
 HEADERS += \
     common/etlbase.h \
