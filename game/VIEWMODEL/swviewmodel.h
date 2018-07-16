@@ -11,7 +11,7 @@ class SWViewModel:public Proxy_PropertyNotification<SWViewModel>,
 {
 public:
     SWViewModel();
-    ~SWViewModel();
+    ~SWViewModel(){}
     void setSWModel(std::shared_ptr<SWModel> sp_SWModel);
     std::shared_ptr<SWMatrix> getSWMatrix();
     std::shared_ptr<ICommandBase> getLayoutCommand();

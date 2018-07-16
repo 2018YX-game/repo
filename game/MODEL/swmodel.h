@@ -8,7 +8,7 @@ class SWModel: public Proxy_PropertyNotification<SWModel>, public Proxy_CommandN
 {
 public:
     SWModel();
-    ~SWModel();
+    ~SWModel(){}
     std::shared_ptr<SWMatrix> getSWMatrix();
     void newLayout(int level);
 
