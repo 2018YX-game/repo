@@ -11,6 +11,6 @@ void StartButtonCommand::SetParameter(const _new_any_space_::any& param)
 {}
 void StartButtonCommand::Exec()
 {
-    ptrApp->window1->close();
-    ptrApp->window2->show();
+    ptrApp->window1.close();
+    ptrApp->window2.show();
 }

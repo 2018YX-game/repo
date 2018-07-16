@@ -10,7 +10,7 @@
 
 class GameAPP
 {
-private:
+public:
     startpage window1;
     gamewindow window2;
     std::shared_ptr<SWModel> model;
