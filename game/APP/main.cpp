@@ -1,11 +1,10 @@
-#include "../WINDOW/startpage.h"
+#include "app.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])//this is submitted by productor
 {
     QApplication a(argc, argv);
-    startpage w;
-    w.show();
-
+    APP app;
+    app.run();
     return a.exec();
 }
