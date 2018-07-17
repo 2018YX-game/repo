@@ -16,6 +16,7 @@ void GameAPP::run()
     window2.set_Martix(viewmodel->getSWMatrix());
     viewmodel->AddPropertyNotification(window2.getPtrWindowProSink());
     viewmodel->AddCommandNotification(window2.getPtrWindowSetSink());
+    viewmodel->AddCommandNotification(window2.getPtrMouseMoveCommandSink());
 
     sp_StartButtonCommand_ = std::make_shared<StartButtonCommand>(this);
 
