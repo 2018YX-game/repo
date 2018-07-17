@@ -36,7 +36,7 @@ SOURCES += \
     APP/app.cpp \
     APP/commands/startbuttoncommand.cpp \
     VIEWMODEL/commands/mousemovecommand.cpp \
-    WINDOW/sinks/mousemovecommandSink.cpp
+    WINDOW/sinks/mousemovecommandsink.cpp
 
 HEADERS += \
     common/etlbase.h \
@@ -53,7 +53,7 @@ HEADERS += \
     APP/app.h \
     APP/commands/startbuttoncommand.h \
     VIEWMODEL/commands/mousemovecommand.h \
-    WINDOW/sinks/mousemovecommandSink.h
+    WINDOW/sinks/mousemovecommandsink.h
 
 FORMS += \
     WINDOW/startpage.ui \

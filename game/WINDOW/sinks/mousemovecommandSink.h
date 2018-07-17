@@ -1,5 +1,5 @@
-#ifndef MOUSEMOVECOMMAND_H
-#define MOUSEMOVECOMMAND_H
+#ifndef MOUSEMOVECOMMANDSINK_H
+#define MOUSEMOVECOMMANDSINK_H
 #include"../../common/etlbase.h"
 #include "qmessagebox.h"
 
@@ -13,4 +13,4 @@ public:
 private:
     gamewindow * ptr_gamewindow;
 };
-#endif // MOUSEMOVECOMMAND_H
+#endif // MOUSEMOVECOMMANDSINK_H
