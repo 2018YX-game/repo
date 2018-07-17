@@ -54,7 +54,7 @@ void gamewindow::paintEvent(QPaintEvent *)
           ;
       }
       else{
-    this->resize(100 + 80 * col, 100 + 80 * row);
+    this->resize(60 + 80 * col, 60 + 80 * row);
 
       for (i = 0; i < row; i++) {
           for (j = 0; j < col; j++) {
@@ -131,6 +131,7 @@ void gamewindow::mouseMoveEvent(QMouseEvent *e){
                 std::string a=std::to_string(row)+" "+std::to_string(col);
            _ptrMouseMoveCommand->SetParameter(_new_any_space_::any_cast<std::string>(a));
               _ptrMouseMoveCommand->Exec();
+              gamewindow::update();
         }
         else{
             ;
