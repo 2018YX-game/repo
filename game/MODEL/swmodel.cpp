@@ -11,6 +11,8 @@ std::shared_ptr<SWMatrix> SWModel::getSWMatrix(){
 
 void SWModel::newLayout(int level)
 {
+    lastRow = 0;
+    lastCol = 0;
     if(level == 1){
         int row = 5;
         int col = 5;
@@ -35,5 +37,72 @@ void SWModel::newLayout(int level)
         sp_SWMatrix->setMatrixPointIsStart(1,3,1);
         sp_SWMatrix->setMatrixPointIsStart(3,4,1);
         Fire_OnPropertyChanged("SWMatrix");
+    }
+}
+
+void SWModel::mouseMoveChange(int curRow, int curCol)
+{
+
+    bool cur_IsStart = sp_SWMatrix->getMatrixPointIsStart(curRow,curCol);
+    bool cur_IsMoveOn = sp_SWMatrix->getMatrixPointIsMoveOn(curRow,curCol);
+    if(lastRow==0 && lastCol==0){
+        if(cur_IsStart){
+            lastRow = curRow;
+            lastCol = curCol;
+            sp_SWMatrix->setMatrixPointIsMoveOn(curRow,curCol,1);
+        }
+    }
+    else if(curRow!=lastRow && curCol!=lastCol){
+        int delta_row = curRow - lastRow;
+        int delta_col = curCol - lastCol;
+
+
+
+
+
+
+        if(!cur_IsMoveOn){
+            if((delta_row==0 && delta_col==1)||(delta_row==0 && delta_col==-1)||(delta_row==-1 && delta_col==0)||(delta_row==1 && delta_col==0)){
+                sp_SWMatrix->setMatrixPointIsStart(curRow,curCol,1);
+                sp_SWMatrix->setMatrixPointIsStart(lastRow,lastCol,0);
+                sp_SWMatrix->setMatrixPointIsMoveOn(curRow,curCol,1);
+                if(sp_SWMatrix->getMatrixPointColor(lastRow,lastCol)==0){
+                    sp_SWMatrix->setMatrixPointColor(lastRow,lastCol,1);
+                }
+                else{
+                    sp_SWMatrix->setMatrixPointColor(lastRow,lastCol,0);
+                }
+                lastRow = curRow;
+                lastCol = curCol;
+            }
+            else{
+                 sp_SWMatrix->setMatrixPointIsStart(lastRow,lastCol,0);
+                 if(sp_SWMatrix->getMatrixPointColor(lastRow,lastCol)==0){
+                     sp_SWMatrix->setMatrixPointColor(lastRow,lastCol,1);
+                 }
+                 else{
+                     sp_SWMatrix->setMatrixPointColor(lastRow,lastCol,0);
+                 }
+            }
+        }
+
+
+        else  if(cur_IsStart){
+              sp_SWMatrix->setMatrixPointIsStart(lastRow,lastCol,0);
+              sp_SWMatrix->setMatrixPointIsMoveOn(curRow,curCol,1);
+
+              if(sp_SWMatrix->getMatrixPointColor(lastRow,lastCol)==0){
+                  sp_SWMatrix->setMatrixPointColor(lastRow,lastCol,1);
+              }
+              else{
+                  sp_SWMatrix->setMatrixPointColor(lastRow,lastCol,0);
+              }
+              lastRow = curRow;
+              lastCol = curCol;
+
+
+
+          }
+
     }
 }

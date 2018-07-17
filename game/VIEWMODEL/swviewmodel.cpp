@@ -23,3 +23,7 @@ std::shared_ptr<ICommandBase> SWViewModel::getLayoutCommand(){
 void SWViewModel::Exec_layout_command(int level){
     sp_SWModel_->newLayout(level);
 }
+
+void SWViewModel::Exec_mouseMove_command(int row, int col){
+    sp_SWModel_->mouseMoveChange(row,col);
+}

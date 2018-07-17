@@ -34,7 +34,8 @@ SOURCES += \
     WINDOW/sinks/gamewindowsetsink.cpp \
     VIEWMODEL/commands/layoutcommand.cpp \
     APP/app.cpp \
-    APP/commands/startbuttoncommand.cpp
+    APP/commands/startbuttoncommand.cpp \
+    VIEWMODEL/commands/mousemovecommand.cpp
 
 HEADERS += \
     common/etlbase.h \
@@ -49,7 +50,8 @@ HEADERS += \
     WINDOW/sinks/gamewindowsetsink.h \
     VIEWMODEL/commands/layoutcommand.h \
     APP/app.h \
-    APP/commands/startbuttoncommand.h
+    APP/commands/startbuttoncommand.h \
+    VIEWMODEL/commands/mousemovecommand.h
 
 FORMS += \
     WINDOW/startpage.ui \

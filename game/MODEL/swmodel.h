@@ -11,9 +11,12 @@ public:
     ~SWModel(){}
     std::shared_ptr<SWMatrix> getSWMatrix();
     void newLayout(int level);
+    void mouseMoveChange(int curRow, int curCol);
 
 private:
     std::shared_ptr<SWMatrix> sp_SWMatrix;
+    int lastRow;
+    int lastCol;
 };
 
 #endif // SWMODEL_H
