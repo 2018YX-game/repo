@@ -43,13 +43,19 @@ void gamewindow::paintEvent(QPaintEvent *)
     painter.drawRect(40,40,200,200);//画矩形
     */
 
-      //int col = this->_spMartix->getMatrixCol(); int row = this->_spMartix->getMatrixRow();
+      int col = this->_spMartix->getMatrixCol(); int row = this->_spMartix->getMatrixRow();
 
-        int col=5;int row=5;
-      this->resize(100 + 80 * col, 100 + 80 * row);
+  //      int col=5;int row=5;
+
       painter.setBrush(Qt::blue);
       painter.drawRect(this->rect());
       int i, j;
+      if(row==0&&col==0){
+          ;
+      }
+      else{
+    this->resize(100 + 80 * col, 100 + 80 * row);
+
       for (i = 0; i < row; i++) {
           for (j = 0; j < col; j++) {
     bool color =0;bool isStart=0;
@@ -71,6 +77,7 @@ void gamewindow::paintEvent(QPaintEvent *)
 
               }
             }
+      }
       }
   }
 

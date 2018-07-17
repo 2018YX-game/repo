@@ -48,7 +48,10 @@ private:
     int col;
    std::vector<SWPoint> sameWorldMatrix;
 public:
-    SWMatrix(){}
+    SWMatrix(){
+         row=0;
+         col=0;
+    }
     ~SWMatrix(){}
     void initialMatrix(int givenRow, int givenCol){
         row = givenRow;
