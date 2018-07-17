@@ -5,6 +5,7 @@
 SWViewModel::SWViewModel(){
     sp_SWViewModelSink_ = std::make_shared<SWViewModelSink>(this);
     sp_layoutCommand_ = std::make_shared<layoutCommand>(this);
+    sp_mouseMoveCommand_ = std::make_shared<mouseMoveCommand>(this);
 }
 
 void SWViewModel::setSWModel(std::shared_ptr<SWModel> sp_SWModel){
@@ -18,6 +19,10 @@ std::shared_ptr<SWMatrix> SWViewModel::getSWMatrix(){
 
 std::shared_ptr<ICommandBase> SWViewModel::getLayoutCommand(){
     return std::static_pointer_cast<ICommandBase>(sp_layoutCommand_);
+}
+
+std::shared_ptr<ICommandBase> SWViewModel::getMouseMoveCommand(){
+    return std::static_pointer_cast<ICommandBase>(sp_mouseMoveCommand_);
 }
 
 void SWViewModel::Exec_layout_command(int level){

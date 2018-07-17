@@ -16,6 +16,7 @@ public:
     void setSWModel(std::shared_ptr<SWModel> sp_SWModel);
     std::shared_ptr<SWMatrix> getSWMatrix();
     std::shared_ptr<ICommandBase> getLayoutCommand();
+    std::shared_ptr<ICommandBase> getMouseMoveCommand();
     void Exec_layout_command(int level);
     void Exec_mouseMove_command(int row, int col);
 
