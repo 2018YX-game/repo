@@ -5,10 +5,10 @@
 #include"../../common/etlbase.h"
 
 class gamewindow;
-class gameWindowPROSink: public IPropertyNotification
+class gamewindowProSink: public IPropertyNotification
 {
 public:
-    gameWindowPROSink(gamewindow *ptr);
+    gamewindowProSink(gamewindow *ptr);
     virtual void OnPropertyChanged(const std::string& str);
 
 private:

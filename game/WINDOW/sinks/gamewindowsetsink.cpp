@@ -1,10 +1,10 @@
 #include "gamewindowsetsink.h"
 #include "../gamewindow.h"
-gameWindowSETSink::gameWindowSETSink(gamewindow *ptr)
+gameWindowSetSink::gameWindowSetSink(gamewindow *ptr)
 {
     ptr_gamewindow = ptr;
 }
-void gameWindowSETSink::OnCommandComplete(const std::string& str, bool bOK)
+void gameWindowSetSink::OnCommandComplete(const std::string& str, bool bOK)
 {
     if(str=="layoutCommand"){
         if(bOK==false){

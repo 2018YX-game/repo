@@ -6,8 +6,8 @@ gamewindow::gamewindow(QWidget *parent) :
     ui(new Ui::gamewindow)
 {
     ui->setupUi(this);
-    _ptrgWindowPROSink= std::make_shared<gameWindowPROSink>(gameWindowPROSink(this));
-    _ptrWindowSetSink=std::make_shared<gameWindowSETSink>(gameWindowSETSink(this));
+    _ptrgWindowPROSink= std::make_shared<gamewindowProSink>(gamewindowProSink(this));
+    _ptrWindowSetSink=std::make_shared<gameWindowSetSink>(gameWindowSetSink(this));
     set_Martix(NULL);
 }
 std::shared_ptr<IPropertyNotification> gamewindow::getPtrWindowProSink(void){
@@ -72,7 +72,10 @@ void gamewindow::paintEvent(QPaintEvent *)
 
                   }
                   else {
-                      painter.setPen(Qt::white);
+                      QPen pen;
+                      pen.setWidth(7);
+                      pen.setBrush(Qt::white);
+                      painter.setPen(pen);
                       painter.setBrush(Qt::black);
                       painter.drawEllipse(40 + 80 * j, 40 + 80 * i, 40, 40);
 
@@ -97,7 +100,8 @@ void gamewindow::paintEvent(QPaintEvent *)
 
 void gamewindow::on_secondButton_clicked()
 {
-
+    _ptrCommand->SetParameter(_new_any_space_::any_cast<int>(2));
+    _ptrCommand->Exec();
 }
 
 void gamewindow::on_firstButton_clicked()

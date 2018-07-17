@@ -5,10 +5,10 @@
 #include "qmessagebox.h"
 
 class gamewindow;
-class gameWindowSETSink: public ICommandNotification
+class gameWindowSetSink: public ICommandNotification
 {
 public:
-    gameWindowSETSink(gamewindow *ptr);
+    gameWindowSetSink(gamewindow *ptr);
     virtual void OnCommandComplete(const std::string& str, bool bOK);
 
 private:

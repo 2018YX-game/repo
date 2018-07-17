@@ -33,8 +33,8 @@ private slots:
  private:
     Ui::gamewindow *ui;
     std::shared_ptr<SWMatrix> _spMartix;
-    std::shared_ptr<gameWindowPROSink> _ptrgWindowPROSink;
-    std::shared_ptr<gameWindowSETSink> _ptrWindowSetSink;
+    std::shared_ptr<gamewindowProSink> _ptrgWindowPROSink;
+    std::shared_ptr<gameWindowSetSink> _ptrWindowSetSink;
     std::shared_ptr<ICommandBase> _ptrCommand;
 };
 
