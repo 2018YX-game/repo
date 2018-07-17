@@ -24,5 +24,12 @@ void GameAPP::run()
 
 
 }
-
+startpage* GameAPP::getStartPage()
+{
+    return &window1;
+}
+gamewindow* GameAPP::getGameWindow()
+{
+    return &window2;
+}
 
