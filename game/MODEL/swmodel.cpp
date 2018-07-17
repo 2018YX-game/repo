@@ -124,7 +124,14 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
 
 
             else if(cur_IsStart){
-
+                int nrow = sp_SWMatrix->getMatrixRow();
+                int ncol = sp_SWMatrix->getMatrixCol();
+                for(int i=1; i<=nrow; i++){
+                    for(int j=1;j<=ncol;j++){
+                        sp_SWMatrix->setMatrixPointIsMoveOn(i,j,0);
+                    }
+                }
+            sp_SWMatrix->setMatrixPointIsMoveOn(3,3,0);
                 sp_SWMatrix->setMatrixPointIsStart(lastRow,lastCol,0);
                 sp_SWMatrix->setMatrixPointIsMoveOn(curRow,curCol,1);
 
