@@ -46,9 +46,7 @@ void gamewindow::paintEvent(QPaintEvent *)
 
       int col = this->_spMartix->getMatrixCol(); int row = this->_spMartix->getMatrixRow();
 
-  //      int col=5;int row=5;
-
-      painter.setBrush(Qt::blue);
+      painter.setBrush(Qt::gray);
       painter.drawRect(this->rect());
       int i, j;
       if(row==0&&col==0){
@@ -59,11 +57,26 @@ void gamewindow::paintEvent(QPaintEvent *)
 
       for (i = 0; i < row; i++) {
           for (j = 0; j < col; j++) {
-  //  bool color =0;bool isStart=0;
-  bool color=this->_spMartix->getMatrixPointColor(i+1,j+1); bool isStart=this->_spMartix->getMatrixPointIsStart(i+1,j+1);
+
+  bool color=this->_spMartix->getMatrixPointColor(i+1,j+1);
+  bool isStart=this->_spMartix->getMatrixPointIsStart(i+1,j+1);
 
               if(isStart==1){
+                  if(color==1){
+                      QPen pen;
+                      pen.setWidth(7);
+                      pen.setBrush(Qt::black);
+                      painter.setPen(pen);
+                      painter.setBrush(Qt::white);
+                      painter.drawEllipse(40 + 80 * j, 40 + 80 * i, 40, 40);
 
+                  }
+                  else {
+                      painter.setPen(Qt::white);
+                      painter.setBrush(Qt::black);
+                      painter.drawEllipse(40 + 80 * j, 40 + 80 * i, 40, 40);
+
+                  }
               }
               else if (color==1){
                   painter.setPen(Qt::white);

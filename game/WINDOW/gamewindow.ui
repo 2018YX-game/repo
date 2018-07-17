@@ -29,10 +29,10 @@
   <widget class="QPushButton" name="secondButton">
    <property name="geometry">
     <rect>
-     <x>197</x>
-     <y>12</y>
-     <width>101</width>
-     <height>31</height>
+     <x>170</x>
+     <y>10</y>
+     <width>111</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
