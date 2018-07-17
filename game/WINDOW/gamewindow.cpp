@@ -109,3 +109,18 @@ void gamewindow::on_firstButton_clicked()
     _ptrCommand->SetParameter(_new_any_space_::any_cast<int>(1));
     _ptrCommand->Exec();
 }
+void gamewindow::mouseMoveEvent(QMouseEvent *e){
+ //   e->x();
+    e->accept();
+    QPoint p=e->pos();
+    int x=p.x();
+    int y=p.y();
+//    qDebug()<<x<<y;
+    if(x>=40&&y>=40){
+        int row =(y-40)/ 80+1;
+        int col=(x-40)/80+1;
+        if((y-row*80-40)<=40&&(x-col*80-40)<=40){
+            qDebug()<<row<<col;
+        }
+    }
+}
