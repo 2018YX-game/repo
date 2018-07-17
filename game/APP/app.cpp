@@ -12,6 +12,7 @@ void GameAPP::run()
 
 
     window2.set_ptrCommand(viewmodel->getLayoutCommand());
+    window2.set_ptrMouseMoveCommand(viewmodel->getMouseMoveCommand());
     window2.set_Martix(viewmodel->getSWMatrix());
     viewmodel->AddPropertyNotification(window2.getPtrWindowProSink());
     viewmodel->AddCommandNotification(window2.getPtrWindowSetSink());
