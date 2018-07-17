@@ -81,8 +81,6 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
                  }
             }
         }
-
-
         else  if(cur_IsStart){
               sp_SWMatrix->setMatrixPointIsStart(lastRow,lastCol,0);
               sp_SWMatrix->setMatrixPointIsMoveOn(curRow,curCol,1);
@@ -95,9 +93,6 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
               }
               lastRow = curRow;
               lastCol = curCol;
-
-
-
           }
         else{
             ;
@@ -107,4 +102,5 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
     else{
         ;
     }
+    Fire_OnPropertyChanged("SWMatrix");
 }
