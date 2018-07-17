@@ -53,7 +53,7 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
             sp_SWMatrix->setMatrixPointIsMoveOn(curRow,curCol,1);
         }
     }
-    else if(curRow!=lastRow && curCol!=lastCol){
+    else if(curRow!=lastRow || curCol!=lastCol){
         int delta_row = curRow - lastRow;
         int delta_col = curCol - lastCol;
          int last_IsStart = sp_SWMatrix->getMatrixPointIsStart(lastRow,lastCol);
