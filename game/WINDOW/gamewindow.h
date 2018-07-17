@@ -9,7 +9,7 @@
 #include"../common/etlbase.h"
 #include "sinks/gamewindowprosink.h"
 #include "sinks/gamewindowsetsink.h"
-#include "sinks/mousemovecommandSink.h"
+#include "sinks/mousemovecommandsink.h"
 
 namespace Ui {
 class gamewindow;
@@ -30,11 +30,9 @@ public:
     std::shared_ptr<ICommandNotification> getPtrMouseMoveCommandSink(void);
     void paintEvent(QPaintEvent *);
     void set_ptrMouseMoveCommand(std::shared_ptr<ICommandBase> ptrMouseMoveCommand);
-private slots:
 
-
+ private slots:
     void on_secondButton_clicked();
-
     void on_firstButton_clicked();
 
  private:

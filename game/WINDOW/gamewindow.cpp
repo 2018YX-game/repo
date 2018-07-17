@@ -43,12 +43,7 @@ void gamewindow::set_Martix(std::shared_ptr<SWMatrix> spMartix){
 void gamewindow::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
-/*    painter.setPen(QPen(Qt::blue,4));//设置画笔形式
-    painter.drawLine(20,20,220,220);//画直线
-    painter.drawLine(20,220,220,20);
-    painter.drawEllipse(20,20,200,200);//画圆
-    painter.drawRect(40,40,200,200);//画矩形
-    */
+
 
       int col = this->_spMartix->getMatrixCol(); int row = this->_spMartix->getMatrixRow();
 

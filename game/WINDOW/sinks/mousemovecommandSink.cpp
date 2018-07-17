@@ -1,6 +1,6 @@
 #include "../gamewindow.h"
-#include "mousemovecommandSink.h"
-mouseMoveCommandSink::gameWindowSetSink(gamewindow *ptr)
+#include "mousemovecommandsink.h"
+mouseMoveCommandSink::mouseMoveCommandSink(gamewindow *ptr)
 {
     ptr_gamewindow = ptr;
 }
