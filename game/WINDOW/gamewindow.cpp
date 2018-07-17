@@ -7,6 +7,7 @@ gamewindow::gamewindow(QWidget *parent) :
 {
     ui->setupUi(this);
     _ptrgWindowPROSink= std::make_shared<gameWindowPROSink>(gameWindowPROSink(this));
+    _ptrWindowSetSink=std::make_shared<gameWindowSETSink>(gameWindowSETSink(this));
     set_Martix(NULL);
 }
 std::shared_ptr<IPropertyNotification> gamewindow::getPtrWindowProSink(void){
@@ -58,8 +59,8 @@ void gamewindow::paintEvent(QPaintEvent *)
 
       for (i = 0; i < row; i++) {
           for (j = 0; j < col; j++) {
-    bool color =0;bool isStart=0;
-  //bool color=this->_spMartix->getMatrixPointColor(i+1,j+1); bool isStart=this->_spMartix->getMatrixPointIsStart(i+1,j+1);
+  //  bool color =0;bool isStart=0;
+  bool color=this->_spMartix->getMatrixPointColor(i+1,j+1); bool isStart=this->_spMartix->getMatrixPointIsStart(i+1,j+1);
 
               if(isStart==1){
 
