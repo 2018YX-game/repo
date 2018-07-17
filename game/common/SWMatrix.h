@@ -56,6 +56,7 @@ public:
     void initialMatrix(int givenRow, int givenCol){
         row = givenRow;
         col = givenCol;
+        sameWorldMatrix.resize(0);
         sameWorldMatrix.resize(row * col);
     }
     void setMatrixPointColor(int pointRow, int pointCol, bool givenColor){
