@@ -18,7 +18,7 @@ void SWModel::newLayout(int level)
         for(int j=1;j<=col;j++){
             sp_SWMatrix->setMatrixPointColor(3,j,1);
         }
-        sp_SWMatrix->setMatrixPointIsStart(row,1,1);
+        sp_SWMatrix->setMatrixPointIsStart(3,1,1);
         Fire_OnPropertyChanged("SWMatrix");
     }
     if(level == 2){
