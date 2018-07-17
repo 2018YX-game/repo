@@ -4,12 +4,12 @@
 mouseMoveCommand::mouseMoveCommand(SWViewModel *ptr_SWViewModel)
 {
     ptr_SWViewModel_ = ptr_SWViewModel;
-    mouseOnRow = 0;
-    mouseOnCol = 0;
 }
 
 void mouseMoveCommand::SetParameter(const _new_any_space_::any& param)
 {
+    mouseOnRow = 0;
+    mouseOnCol = 0;
     std::string coor = _new_any_space_::any_cast<std::string>(param);
     int i = 0;
     while (i < coor.size()){

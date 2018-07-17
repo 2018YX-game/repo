@@ -53,6 +53,36 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
             sp_SWMatrix->setMatrixPointIsMoveOn(curRow,curCol,1);
         }
     }
+    else if(curRow==lastRow && curCol==lastCol){
+        int nrow = sp_SWMatrix->getMatrixRow();
+        int ncol = sp_SWMatrix->getMatrixCol();
+        bool curColor = sp_SWMatrix->getMatrixPointColor(curRow,curCol);
+        bool flag = 0;
+        for(int i=1; i<=nrow; i++){
+            for(int j=1;j<=ncol;j++){
+                if(i!=curRow || j!=curCol){
+                    bool tempColor = sp_SWMatrix->getMatrixPointColor(i,j);
+                    if(tempColor == curColor){
+                        flag =1;
+                        break;
+                    }
+                }
+            }
+            if(flag){
+                break;
+            }
+        }
+        if(!flag){
+            if(curColor==0){
+                sp_SWMatrix->setMatrixPointColor(curRow,curCol,1);
+            }
+            else{
+                sp_SWMatrix->setMatrixPointColor(curRow,curCol,0);
+            }
+            sp_SWMatrix->setMatrixPointIsStart(lastRow,lastCol,0);
+        }
+    }
+
     else if(curRow!=lastRow || curCol!=lastCol){
         int delta_row = curRow - lastRow;
         int delta_col = curCol - lastCol;
