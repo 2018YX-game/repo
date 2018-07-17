@@ -7,7 +7,7 @@ class SWPoint
 {
 private:
     bool color;
-    bool isStart;
+    int isStart;
     bool isMoveOn;
 public:
     SWPoint(){
@@ -15,7 +15,7 @@ public:
         isStart = 0;
         isMoveOn = 0;
     }
-    SWPoint(bool givenColor, bool givenIsStart, bool givenIsMoveOn){
+    SWPoint(bool givenColor, int givenIsStart, bool givenIsMoveOn){
         color = givenColor;
         isStart = givenIsStart;
         isMoveOn = givenIsMoveOn;
@@ -27,10 +27,10 @@ public:
     bool getColor() const {
         return color;
     }
-    void setIsStart(bool givenIsStart){
+    void setIsStart(int givenIsStart){
         isStart = givenIsStart;
     }
-    bool getIsStart() const {
+    int getIsStart() const {
         return isStart;
     }
     void setIsMoveOn(bool givenIsMoveOn){
@@ -63,7 +63,7 @@ public:
         int index = (pointRow - 1) * col + pointCol - 1;
         sameWorldMatrix[index].setColor(givenColor);
     }
-    void setMatrixPointIsStart(int pointRow, int pointCol, bool givenIsStart){
+    void setMatrixPointIsStart(int pointRow, int pointCol, int givenIsStart){
         int index = (pointRow - 1) * col + pointCol - 1;
         sameWorldMatrix[index].setIsStart(givenIsStart);
     }
@@ -75,7 +75,7 @@ public:
         int index = (pointRow - 1) * col + pointCol - 1;
         return sameWorldMatrix[index].getColor();
     }
-    bool getMatrixPointIsStart(int pointRow, int pointCol){
+    int getMatrixPointIsStart(int pointRow, int pointCol){
         int index = (pointRow - 1) * col + pointCol - 1;
         return sameWorldMatrix[index].getIsStart();
     }
