@@ -8,6 +8,7 @@ gamewindow::gamewindow(QWidget *parent) :
     ui->setupUi(this);
     _ptrgWindowPROSink= std::make_shared<gamewindowProSink>(gamewindowProSink(this));
     _ptrWindowSetSink=std::make_shared<gameWindowSetSink>(gameWindowSetSink(this));
+    _ptrMouseMoveCommandSink=std::make_shared<mouseMoveCommandSink>(mouseMoveCommandSink(this));
     set_Martix(NULL);
 }
 std::shared_ptr<IPropertyNotification> gamewindow::getPtrWindowProSink(void){
@@ -18,11 +19,16 @@ std::shared_ptr<ICommandNotification> gamewindow::getPtrWindowSetSink(void){
 
     return std::static_pointer_cast<ICommandNotification>(_ptrWindowSetSink);
 }
+std::shared_ptr<ICommandNotification> gamewindow::getPtrMouseMoveCommandSink(void){
+     return std::static_pointer_cast<ICommandNotification>(_ptrMouseMoveCommandSink);
+}
 
 void gamewindow::set_ptrCommand(std::shared_ptr<ICommandBase> ptrCommand){
     _ptrCommand=ptrCommand;
 }
-
+void gamewindow::set_ptrMouseMoveCommand(std::shared_ptr<ICommandBase> ptrMouseMoveCommand){
+    _ptrMouseMoveCommand=ptrMouseMoveCommand;
+}
 
 
 gamewindow::~gamewindow()
@@ -115,12 +121,24 @@ void gamewindow::mouseMoveEvent(QMouseEvent *e){
     QPoint p=e->pos();
     int x=p.x();
     int y=p.y();
+    int col1 = this->_spMartix->getMatrixCol();
+    int row1 = this->_spMartix->getMatrixRow();
+
 //    qDebug()<<x<<y;
     if(x>=40&&y>=40){
         int row =(y-40)/ 80+1;
         int col=(x-40)/80+1;
-        if((y-row*80-40)<=40&&(x-col*80-40)<=40){
+        if(row>row1||col>col1){
+            ;
+        }
+        else if((y-row*80-40)<=40&&(x-col*80-40)<=40){
             qDebug()<<row<<col;
+                std::string a=std::to_string(row)+" "+std::to_string(col);
+           _ptrMouseMoveCommand->SetParameter(_new_any_space_::any_cast<std::string>(a));
+              _ptrMouseMoveCommand->Exec();
+        }
+        else{
+            ;
         }
     }
 }

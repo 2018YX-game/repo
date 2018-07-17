@@ -1,16 +1,17 @@
-#include "gamewindowsetsink.h"
 #include "../gamewindow.h"
-gameWindowSetSink::gameWindowSetSink(gamewindow *ptr)
+#include "mousemovecommandSink.h"
+mouseMoveCommandSink::gameWindowSetSink(gamewindow *ptr)
 {
     ptr_gamewindow = ptr;
 }
-void gameWindowSetSink::OnCommandComplete(const std::string& str, bool bOK)
+void mouseMoveCommandSink::OnCommandComplete(const std::string& str, bool bOK)
 {
-    if(str=="layoutCommand"){
+    if(str=="mouseMoveCommand"){
         if(bOK==false){
             QMessageBox MSG;
             MSG.setWindowTitle(QString("error!"));
             MSG.exec();
+
 
         }
     }
