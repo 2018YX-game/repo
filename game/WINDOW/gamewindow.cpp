@@ -150,3 +150,10 @@ void gamewindow::mouseMoveEvent(QMouseEvent *e){
         }
     }
 }
+
+void gamewindow::mouseReleaseEvent(QMouseEvent *e){
+    std::string a=std::to_string(0)+" "+std::to_string(0);
+    _ptrMouseMoveCommand->SetParameter(_new_any_space_::any_cast<std::string>(a));
+    _ptrMouseMoveCommand->Exec();
+    gamewindow::update();
+}
