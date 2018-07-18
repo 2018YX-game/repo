@@ -43,8 +43,7 @@ after_build:
   - 7z a %MSVC_PLATFORM%-release.zip %APPVEYOR_BUILD_FOLDER%\game\release\*
 
 artifacts:
-  - path: game\release\release
-  - name: *-release.zip
+  - path: game\release\release\*-release.zip
 
 
  
