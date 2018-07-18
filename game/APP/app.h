@@ -11,8 +11,8 @@
 class GameAPP
 {
 private:
-    startpage window1;
-    gamewindow window2;
+    startpage _startpagewindow;
+    gamewindow _gamewindow;
     std::shared_ptr<SWModel> model;
     std::shared_ptr<SWViewModel> viewmodel;
 

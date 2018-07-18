@@ -10,28 +10,28 @@ void GameAPP::run()
 
     viewmodel->setSWModel(model);
 
-
-    window2.set_ptrCommand(viewmodel->getLayoutCommand());
-    window2.set_ptrMouseMoveCommand(viewmodel->getMouseMoveCommand());
-    window2.set_Martix(viewmodel->getSWMatrix());
-    viewmodel->AddPropertyNotification(window2.getPtrWindowProSink());
-    viewmodel->AddCommandNotification(window2.getPtrWindowSetSink());
-    viewmodel->AddCommandNotification(window2.getPtrMouseMoveCommandSink());
-
+/*
+    _gamewindow.set_ptrCommand(viewmodel->getLayoutCommand());
+    _gamewindow.set_ptrMouseMoveCommand(viewmodel->getMouseMoveCommand());
+    _gamewindow.set_Martix(viewmodel->getSWMatrix());
+    viewmodel->AddPropertyNotification(_gamewindow.getPtrWindowProSink());
+    viewmodel->AddCommandNotification(_gamewindow.getPtrWindowSetSink());
+    viewmodel->AddCommandNotification(_gamewindow.getPtrMouseMoveCommandSink());
+*/
     sp_StartButtonCommand_ = std::make_shared<StartButtonCommand>(this);
 
-    window1.set_ptrCommand(std::static_pointer_cast<ICommandBase>(this->sp_StartButtonCommand_));
-    window1.show();
+    _startpagewindow.set_ptrCommand(std::static_pointer_cast<ICommandBase>(this->sp_StartButtonCommand_));
+    _startpagewindow.show();
 
 
 
 }
 startpage* GameAPP::getStartPage()
 {
-    return &window1;
+    return &_startpagewindow;
 }
 gamewindow* GameAPP::getGameWindow()
 {
-    return &window2;
+    return &_gamewindow;
 }
 
