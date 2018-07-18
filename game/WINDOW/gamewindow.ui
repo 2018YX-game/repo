@@ -13,32 +13,6 @@
   <property name="windowTitle">
    <string>gamewindow</string>
   </property>
-  <widget class="QPushButton" name="firstButton">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>10</y>
-     <width>111</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>选择第一关</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="secondButton">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>10</y>
-     <width>111</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>选择第二关</string>
-   </property>
-  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
