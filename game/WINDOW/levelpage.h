@@ -16,6 +16,8 @@ public:
     explicit levelPage(QWidget *parent = 0);
     ~levelPage();
     void set_ptrCommand(std::shared_ptr<ICommandBase> ptrCommand);
+    void set_ptrOpenCommand(std::shared_ptr<ICommandBase> ptrCommand);
+    void openGameWindow();
     int getLevel();
 
 private slots:
@@ -34,6 +36,7 @@ private:
     Ui::levelPage *ui;
     int level;
     std::shared_ptr<ICommandBase> _ptrCommand;
+    std::shared_ptr<ICommandBase> _ptrOpenCommand;
 };
 
 #endif // LEVELPAGE_H
