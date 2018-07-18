@@ -8,7 +8,7 @@
 #include "../WINDOW/form.h"
 #include "../WINDOW/levelpage.h"
 #include "commands/startbuttoncommand.h"
-
+#include "commands/gamewndowcommand.h"
 
 class GameAPP
 {
@@ -21,7 +21,7 @@ private:
     std::shared_ptr<SWViewModel> viewmodel;
 
     std::shared_ptr<StartButtonCommand> sp_StartButtonCommand_;
-
+    std::shared_ptr<gameWindowCommand> _spGameWindowCommand;
 public:
     GameAPP();
     ~GameAPP();

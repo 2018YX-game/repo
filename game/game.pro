@@ -38,7 +38,8 @@ SOURCES += \
     WINDOW/sinks/mousemovecommandsink.cpp \
     WINDOW/form.cpp \
     WINDOW/levelpage.cpp \
-    WINDOW/sinks/newlayoutcommandsink.cpp
+    WINDOW/sinks/newlayoutcommandsink.cpp \
+    APP/commands/gamewindowcommand.cpp
 
 HEADERS += \
     common/etlbase.h \
@@ -57,7 +58,8 @@ HEADERS += \
     WINDOW/sinks/mousemovecommandsink.h \
     WINDOW/form.h \
     WINDOW/levelpage.h \
-    WINDOW/sinks/newlayoutcommandsink.h
+    WINDOW/sinks/newlayoutcommandsink.h \
+    APP/commands/gamewndowcommand.h
 
 FORMS += \
     WINDOW/startpage.ui \
