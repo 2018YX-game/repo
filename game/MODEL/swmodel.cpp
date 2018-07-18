@@ -224,22 +224,17 @@ void SWModel::newLayout(int level)
 
 void SWModel::mouseMoveChange(int curRow, int curCol)
 {
+    if(lastRow==0 && lastCol==0 && curRow!=0){
 
-    int cur_IsStart = sp_SWMatrix->getMatrixPointIsStart(curRow,curCol);
-    bool cur_IsMoveOn = sp_SWMatrix->getMatrixPointIsMoveOn(curRow,curCol);
-
-
-
-
-    if(lastRow==0 && lastCol==0){
-        if(cur_IsStart){
+        if(sp_SWMatrix->getMatrixPointIsStart(curRow,curCol)){
             lastRow = curRow;
             lastCol = curCol;
             sp_SWMatrix->setMatrixPointIsMoveOn(curRow,curCol,1);
         }
     }
 
-    else if(curRow==0){
+    //鼠标释放，lastpoint变色，检查矩阵是否颜色统一
+    else if(curRow==0 & lastRow != 0){
         sp_SWMatrix->setMatrixPointIsStart(lastRow,lastCol,0);
 
         if(sp_SWMatrix->getMatrixPointColor(lastRow,lastCol)==0){
@@ -248,16 +243,14 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
         else{
             sp_SWMatrix->setMatrixPointColor(lastRow,lastCol,0);
         }
+
         lastRow = curRow;
         lastCol = curCol;
-    }
 
-
-
-    else if(curRow==lastRow && curCol==lastCol){
+        //检查逻辑
         int nrow = sp_SWMatrix->getMatrixRow();
         int ncol = sp_SWMatrix->getMatrixCol();
-        bool curColor = sp_SWMatrix->getMatrixPointColor(curRow,curCol);
+        bool curColor = sp_SWMatrix->getMatrixPointColor(1,1);
         bool flag = 0;
         for(int i=1; i<=nrow; i++){
             for(int j=1;j<=ncol;j++){
@@ -284,10 +277,13 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
 
             Fire_OnPropertyChanged("GameComplete");
         }
+
+        for(int i=1; i<=nrow; i++){
+            for(int j=1;j<=ncol;j++){
+                sp_SWMatrix->setMatrixPointIsMoveOn(i,j,0);
+            }
+        }
     }
-
-
-
 
 
 
@@ -309,7 +305,7 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
         }
 
 
-        else if(!cur_IsMoveOn){
+        else if(!(sp_SWMatrix->getMatrixPointIsMoveOn(curRow,curCol))){
 
 
             if((delta_row==0 && delta_col==1)||(delta_row==0 && delta_col==-1)||(delta_row==-1 && delta_col==0)||(delta_row==1 && delta_col==0)){
@@ -329,7 +325,7 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
 
 
 
-            else if(cur_IsStart){
+            else if(sp_SWMatrix->getMatrixPointIsStart(curRow,curCol)){
                 int nrow = sp_SWMatrix->getMatrixRow();
                 int ncol = sp_SWMatrix->getMatrixCol();
                 for(int i=1; i<=nrow; i++){
