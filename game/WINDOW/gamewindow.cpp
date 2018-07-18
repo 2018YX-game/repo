@@ -9,6 +9,7 @@ gamewindow::gamewindow(QWidget *parent) :
     _ptrgWindowPROSink= std::make_shared<gamewindowProSink>(gamewindowProSink(this));
     _ptrnewLayoutCommandSink=std::make_shared<newLayoutCommandSink>(newLayoutCommandSink(this));
     _ptrMouseMoveCommandSink=std::make_shared<mouseMoveCommandSink>(mouseMoveCommandSink(this));
+    _ptrGameCompleteSink=std::make_shared<gameCompleteSink>(gameCompleteSink(this));
     set_Martix(NULL);
 }
 
@@ -27,11 +28,21 @@ std::shared_ptr<ICommandNotification> gamewindow::getPtrMouseMoveCommandSink(voi
      return std::static_pointer_cast<ICommandNotification>(_ptrMouseMoveCommandSink);
 }
 
-
-void gamewindow::set_ptrMouseMoveCommand(std::shared_ptr<ICommandBase> ptrMouseMoveCommand){
-    _ptrMouseMoveCommand=ptrMouseMoveCommand;
+std::shared_ptr<IPropertyNotification> gamewindow::getPtrGameCompleteSink(void){
+     return std::static_pointer_cast<IPropertyNotification>(_ptrGameCompleteSink);
 }
 
+void gamewindow::set_ptrMouseMoveCommand(std::shared_ptr<ICommandBase> ptrMouseMoveCommand){
+    _ptrMouseMoveCommand = ptrMouseMoveCommand;
+}
+
+void gamewindow::set_ptrGameCompleteCommand(std::shared_ptr<ICommandBase> ptrGameCompleteCommand){
+    _ptrGameCompleteCommand = ptrGameCompleteCommand;
+}
+
+void gamewindow::openForm(){
+    _ptrGameCompleteCommand->Exec();
+}
 
 gamewindow::~gamewindow()
 {
