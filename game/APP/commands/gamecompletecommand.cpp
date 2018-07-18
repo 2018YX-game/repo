@@ -13,6 +13,6 @@ void gamecompletecommand::SetParameter(const _new_any_space_::any& param)
 {}
 void gamecompletecommand::Exec()
 {
- //   (ptrApp->getGameWindow())->close();
+    (ptrApp->getGameWindow())->close();
     (ptrApp->getFormWindow())->show();
 }
