@@ -3,11 +3,11 @@ environment:
     - QTDIR: C:\Qt\5.11\msvc2015
       CMD_VCVARSALL: '"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" x86'
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-       TILED_ITCH_CHANNEL: windows-32bit
+      MSVC_PLATFORM: "x86"
     - QTDIR: C:\Qt\5.11\msvc2017_64
       CMD_VCVARSALL: '"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" x64'
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-       TILED_ITCH_CHANNEL: windows-64bit
+      MSVC_PLATFORM: "x64"
        
 configuration:
   - release
@@ -44,7 +44,7 @@ after_build:
 
 artifacts:
   - path: game\release\release
-  - name:%TILED_ITCH_CHANNEL%-release.zip
+  - name:%MSVC_PLATFORM%-release.zip
 
 
  
