@@ -55,6 +55,7 @@ class SWMatrix
 private:
     int row;
     int col;
+    int level;
    std::vector<SWPoint> sameWorldMatrix;
 public:
     SWMatrix(){
@@ -62,9 +63,10 @@ public:
          col=0;
     }
     ~SWMatrix(){}
-    void initialMatrix(int givenRow, int givenCol){
+    void initialMatrix(int givenRow, int givenCol, int givenLevel){
         row = givenRow;
         col = givenCol;
+        level = givenLevel;
         sameWorldMatrix.resize(0);
         sameWorldMatrix.resize(row * col);
     }
@@ -100,15 +102,14 @@ public:
         int index = (pointRow - 1) * col + pointCol - 1;
         return sameWorldMatrix[index].getIsExist();
     }
-    SWPoint& getMatrixPoint(int pointRow, int pointCol) {
-        int index = (pointRow - 1) * col + pointCol - 1;
-        return sameWorldMatrix[index];
-    }
     int getMatrixRow() const{
         return row;
     }
     int getMatrixCol() const{
         return col;
+    }
+    int getMatrixLevel() const{
+        return level;
     }
 };
 
