@@ -15,7 +15,7 @@ public:
         color = 0;
         isStart = 0;
         isMoveOn = 0;
-        isExist = 0;
+        isExist = 1;
     }
     SWPoint(bool givenColor, int givenIsStart, bool givenIsMoveOn, bool givenIsExist){
         color = givenColor;
