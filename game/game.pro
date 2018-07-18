@@ -40,7 +40,9 @@ SOURCES += \
     WINDOW/levelpage.cpp \
     WINDOW/sinks/newlayoutcommandsink.cpp \
     APP/commands/gamewindowcommand.cpp \
-    WINDOW/sinks/gamecompletesink.cpp
+    WINDOW/sinks/gamecompletesink.cpp \
+    APP/commands/gamecompletecommand.cpp \
+    APP/commands/startbuttoncommand.cpp
 
 HEADERS += \
     common/etlbase.h \
@@ -60,8 +62,11 @@ HEADERS += \
     WINDOW/form.h \
     WINDOW/levelpage.h \
     WINDOW/sinks/newlayoutcommandsink.h \
-    APP/commands/gamewndowcommand.h \
-    WINDOW/sinks/gamecompletesink.h
+    WINDOW/sinks/gamecompletesink.h \
+    APP/commands/gamewindowcommand.h \
+    APP/commands/gamecompletecommand.h \
+    APP/commands/gamewindowcommand.h \
+    APP/commands/startbuttoncommand.h
 
 FORMS += \
     WINDOW/startpage.ui \
