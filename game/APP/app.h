@@ -8,8 +8,8 @@
 #include "../WINDOW/form.h"
 #include "../WINDOW/levelpage.h"
 #include "commands/startbuttoncommand.h"
-#include "commands/gamewndowcommand.h"
-
+#include "commands/gamewindowcommand.h"
+#include "commands/gamecompletecommand.h"
 class GameAPP
 {
 private:
@@ -19,7 +19,7 @@ private:
     gamewindow _gameWindow;
     std::shared_ptr<SWModel> model;
     std::shared_ptr<SWViewModel> viewmodel;
-
+    std::shared_ptr<gamecompletecommand> _spGameCompleteCommand;
     std::shared_ptr<StartButtonCommand> sp_StartButtonCommand_;
     std::shared_ptr<gameWindowCommand> _spGameWindowCommand;
 public:
