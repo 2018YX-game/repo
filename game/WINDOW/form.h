@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include"../common/etlbase.h"
+#include"../common/SWMatrix.h"
 
 namespace Ui {
 class Form;
@@ -15,9 +16,10 @@ class Form : public QWidget
 public:
     explicit Form(QWidget *parent = 0);
     ~Form();
+    void setMartix(std::shared_ptr<SWMatrix> spMartix);
     void setMenuCommand(std::shared_ptr<ICommandBase> ptr_menu);
-    void setNextCommand(std::shared_ptr<ICommandBase> ptr_next);
-    void setAgainCommand(std::shared_ptr<ICommandBase> ptr_again);
+    void setOpenCommand(std::shared_ptr<ICommandBase> ptr_open);
+    void setNewGameCommand(std::shared_ptr<ICommandBase> ptr_newgame);
 
 private slots:
     void on_menuButton_clicked();
@@ -26,9 +28,11 @@ private slots:
 
 private:
     Ui::Form *ui;
+    int level;
+    std::shared_ptr<SWMatrix> _spMartix;
+    std::shared_ptr<ICommandBase> ptr_newGameCommand;
     std::shared_ptr<ICommandBase> ptr_menuCommand;
-    std::shared_ptr<ICommandBase> ptr_nextCommand;
-    std::shared_ptr<ICommandBase> ptr_againCommand;
+    std::shared_ptr<ICommandBase> ptr_openCommand;
 };
 
 #endif // FORM_H
