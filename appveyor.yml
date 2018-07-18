@@ -40,10 +40,11 @@ after_build:
   - cd release
   - xcopy %APPVEYOR_BUILD_FOLDER%\game\release\SameWorld.exe %APPVEYOR_BUILD_FOLDER%\game\release\release\
   - windeployqt SameWorld.exe
-  - 7z a %MSVC_PLATFORM%-release.zip %APPVEYOR_BUILD_FOLDER%\game\release\*
+  - cd ../..
+  - 7z a %MSVC_PLATFORM%-release.zip %APPVEYOR_BUILD_FOLDER%\game\release\release\*
 
 artifacts:
-  - path: game\release\release\*-release.zip
+  - path: game\*-release.zip
 
 deploy:
   provider: GitHub
