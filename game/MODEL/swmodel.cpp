@@ -215,7 +215,7 @@ void SWModel::newLayout(int level)
 
 
         sp_SWMatrix->setMatrixPointIsStart(1,1,1);
-        sp_SWMatrix->setMatrixPointIsStart(1,1,1);
+        sp_SWMatrix->setMatrixPointIsStart(6,4,1);
 
         Fire_OnPropertyChanged("SWMatrix");
     }
@@ -237,6 +237,19 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
             lastCol = curCol;
             sp_SWMatrix->setMatrixPointIsMoveOn(curRow,curCol,1);
         }
+    }
+
+    else if(curRow==0){
+        sp_SWMatrix->setMatrixPointIsStart(lastRow,lastCol,0);
+
+        if(sp_SWMatrix->getMatrixPointColor(lastRow,lastCol)==0){
+            sp_SWMatrix->setMatrixPointColor(lastRow,lastCol,1);
+        }
+        else{
+            sp_SWMatrix->setMatrixPointColor(lastRow,lastCol,0);
+        }
+        lastRow = curRow;
+        lastCol = curCol;
     }
 
 
