@@ -52,7 +52,8 @@ deploy:
   artifact: /.*\.zip/
   force_update: false
   on:
-    appveyor_repo_tag: true
-
+      branch: master
+    
+    
   
   
