@@ -51,7 +51,8 @@ deploy:
     secure: sKXO3m5dmRYlgFc+/Xp+TzW7y49SPFYnSN2RQIHEk5TlHVj7nhgZ95xhsyTh7WtM
   artifact: /.*\.zip/
   force_update: false
-
+  on:
+    appveyor_repo_tag: true
 
   
   
