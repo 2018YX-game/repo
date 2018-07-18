@@ -1,4 +1,4 @@
-#include "gamewndowcommand.h"
+#include "gamewindowcommand.h"
 #include "../app.h"
 
 gameWindowCommand::gameWindowCommand(GameAPP *ptr_App)
