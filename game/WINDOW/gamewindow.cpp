@@ -7,7 +7,7 @@ gamewindow::gamewindow(QWidget *parent) :
 {
     ui->setupUi(this);
     _ptrgWindowPROSink= std::make_shared<gamewindowProSink>(gamewindowProSink(this));
-    _ptrWindowSetSink=std::make_shared<gameWindowSetSink>(gameWindowSetSink(this));
+    _ptrnewLayoutCommandSink=std::make_shared<newLayoutCommandSink>(newLayoutCommandSink(this));
     _ptrMouseMoveCommandSink=std::make_shared<mouseMoveCommandSink>(mouseMoveCommandSink(this));
     set_Martix(NULL);
 }
@@ -17,15 +17,15 @@ std::shared_ptr<IPropertyNotification> gamewindow::getPtrWindowProSink(void){
 }
 std::shared_ptr<ICommandNotification> gamewindow::getPtrWindowSetSink(void){
 
-    return std::static_pointer_cast<ICommandNotification>(_ptrWindowSetSink);
+    return std::static_pointer_cast<ICommandNotification>(_ptrnewLayoutCommandSink);
 }
 std::shared_ptr<ICommandNotification> gamewindow::getPtrMouseMoveCommandSink(void){
      return std::static_pointer_cast<ICommandNotification>(_ptrMouseMoveCommandSink);
 }
 
-void gamewindow::set_ptrCommand(std::shared_ptr<ICommandBase> ptrCommand){
+/*void gamewindow::set_ptrCommand(std::shared_ptr<ICommandBase> ptrCommand){
     _ptrCommand=ptrCommand;
-}
+}*/
 void gamewindow::set_ptrMouseMoveCommand(std::shared_ptr<ICommandBase> ptrMouseMoveCommand){
     _ptrMouseMoveCommand=ptrMouseMoveCommand;
 }
@@ -99,7 +99,7 @@ void gamewindow::paintEvent(QPaintEvent *)
       }
   }
 
-void gamewindow::on_secondButton_clicked()
+/*void gamewindow::on_secondButton_clicked()
 {
     _ptrCommand->SetParameter(_new_any_space_::any_cast<int>(2));
     _ptrCommand->Exec();
@@ -109,7 +109,7 @@ void gamewindow::on_firstButton_clicked()
 {
     _ptrCommand->SetParameter(_new_any_space_::any_cast<int>(1));
     _ptrCommand->Exec();
-}
+}*/
 void gamewindow::mouseMoveEvent(QMouseEvent *e){
  //   e->x();
     e->accept();

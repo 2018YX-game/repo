@@ -1,17 +1,17 @@
-#ifndef GAMEWINDOWSETSINK_H
-#define GAMEWINDOWSETSINK_H
+#ifndef NEWLAYOUTCOMMANDSINK_H
+#define NEWLAYOUTCOMMANDSINK_H
 
 #include"../../common/etlbase.h"
 #include "qmessagebox.h"
 
 class gamewindow;
-class gameWindowSetSink: public ICommandNotification
+class newLayoutCommandSink: public ICommandNotification
 {
 public:
-    gameWindowSetSink(gamewindow *ptr);
+    newLayoutCommandSink(gamewindow *ptr);
     virtual void OnCommandComplete(const std::string& str, bool bOK);
 
 private:
     gamewindow * ptr_gamewindow;
 };
-#endif // GAMEWINDOWSETSINK_H
+#endif // newLayoutCommandSink_H

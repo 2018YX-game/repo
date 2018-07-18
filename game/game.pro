@@ -31,12 +31,14 @@ SOURCES += \
     VIEWMODEL/swviewmodel.cpp \
     MODEL/swmodel.cpp \
     WINDOW/sinks/gamewindowprosink.cpp \
-    WINDOW/sinks/gamewindowsetsink.cpp \
     VIEWMODEL/commands/layoutcommand.cpp \
     APP/app.cpp \
     APP/commands/startbuttoncommand.cpp \
     VIEWMODEL/commands/mousemovecommand.cpp \
-    WINDOW/sinks/mousemovecommandsink.cpp
+    WINDOW/sinks/mousemovecommandsink.cpp \
+    WINDOW/form.cpp \
+    WINDOW/levelpage.cpp \
+    WINDOW/sinks/newlayoutcommandsink.cpp
 
 HEADERS += \
     common/etlbase.h \
@@ -48,15 +50,19 @@ HEADERS += \
     common/SWMatrix.h \
     common/any.h \
     WINDOW/sinks/gamewindowprosink.h \
-    WINDOW/sinks/gamewindowsetsink.h \
     VIEWMODEL/commands/layoutcommand.h \
     APP/app.h \
     APP/commands/startbuttoncommand.h \
     VIEWMODEL/commands/mousemovecommand.h \
-    WINDOW/sinks/mousemovecommandsink.h
+    WINDOW/sinks/mousemovecommandsink.h \
+    WINDOW/form.h \
+    WINDOW/levelpage.h \
+    WINDOW/sinks/newlayoutcommandsink.h
 
 FORMS += \
     WINDOW/startpage.ui \
-    WINDOW/gamewindow.ui
+    WINDOW/gamewindow.ui \
+    WINDOW/form.ui \
+    WINDOW/levelpage.ui
 
 CONFIG += c++17
