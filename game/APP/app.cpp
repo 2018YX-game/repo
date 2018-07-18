@@ -17,7 +17,7 @@ void GameAPP::run()
     viewmodel->AddPropertyNotification(_gameWindow.getPtrWindowProSink());
     viewmodel->AddCommandNotification(_gameWindow.getPtrNewLayoutSink());
     viewmodel->AddCommandNotification(_gameWindow.getPtrPointChangeTrackingSink());
-
+    viewmodel->AddPropertyNotification(_gameWindow.getPtrGameCompleteSink());
     sp_StartButtonCommand_ = std::make_shared<StartButtonCommand>(this);
     _spGameWindowCommand = std::make_shared<gameWindowCommand>(this);
     _spGameCompleteCommand = std::make_shared<gamecompletecommand>(this);
