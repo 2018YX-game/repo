@@ -18,7 +18,6 @@ public:
     void set_ptrCommand(std::shared_ptr<ICommandBase> ptrCommand);
     void set_ptrOpenCommand(std::shared_ptr<ICommandBase> ptrCommand);
     void openGameWindow();
-    int getLevel();
 
 private slots:
     void on_level1_clicked();

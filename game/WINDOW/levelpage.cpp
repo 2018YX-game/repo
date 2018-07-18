@@ -26,10 +26,6 @@ void levelPage::openGameWindow(){
     _ptrOpenCommand->Exec();
 }
 
-int levelPage::getLevel(){
-    return level;
-}
-
 void levelPage::on_level1_clicked(){
     openGameWindow();
     level = 1;
