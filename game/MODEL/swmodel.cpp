@@ -254,12 +254,10 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
         bool flag = 0;
         for(int i=1; i<=nrow; i++){
             for(int j=1;j<=ncol;j++){
-                if(i!=curRow || j!=curCol){
-                    bool tempColor = sp_SWMatrix->getMatrixPointColor(i,j);
-                    if(tempColor == curColor){
-                        flag =1;
-                        break;
-                    }
+                bool tempColor = sp_SWMatrix->getMatrixPointColor(i,j);
+                if(tempColor != curColor){
+                    flag =1;
+                    break;
                 }
             }
             if(flag){
@@ -267,14 +265,6 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
             }
         }
         if(!flag){
-            if(curColor==0){
-                sp_SWMatrix->setMatrixPointColor(curRow,curCol,1);
-            }
-            else{
-                sp_SWMatrix->setMatrixPointColor(curRow,curCol,0);
-            }
-            sp_SWMatrix->setMatrixPointIsStart(lastRow,lastCol,0);
-
             Fire_OnPropertyChanged("GameComplete");
         }
 
