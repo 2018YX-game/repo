@@ -5,14 +5,18 @@
 #include "../VIEWMODEL/swviewmodel.h"
 #include "../WINDOW/gamewindow.h"
 #include "../WINDOW/startpage.h"
+#include "../WINDOW/form.h"
+#include "../WINDOW/levelpage.h"
 #include "commands/startbuttoncommand.h"
 
 
 class GameAPP
 {
 private:
-    startpage _startpagewindow;
-    gamewindow _gamewindow;
+    startpage _startpageWindow;
+    Form _formWindow;
+    levelPage _levelPageWindow;
+    gamewindow _gameWindow;
     std::shared_ptr<SWModel> model;
     std::shared_ptr<SWViewModel> viewmodel;
 
@@ -24,6 +28,8 @@ public:
     void run();
     startpage* getStartPage();
     gamewindow* getGameWindow();
+    Form* getFormWindow();
+    levelPage* getLevelPageWindow();
 };
 
 

@@ -12,5 +12,5 @@ void StartButtonCommand::SetParameter(const _new_any_space_::any& param)
 void StartButtonCommand::Exec()
 {
     (ptrApp->getStartPage())->close();
-    (ptrApp->getGameWindow())->show();
+    (ptrApp->getLevelPageWindow())->show();
 }
