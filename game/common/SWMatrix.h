@@ -9,16 +9,19 @@ private:
     bool color;
     int isStart;
     bool isMoveOn;
+    bool isExist;
 public:
     SWPoint(){
         color = 0;
         isStart = 0;
         isMoveOn = 0;
+        isExist = 0;
     }
-    SWPoint(bool givenColor, int givenIsStart, bool givenIsMoveOn){
+    SWPoint(bool givenColor, int givenIsStart, bool givenIsMoveOn, bool givenIsExist){
         color = givenColor;
         isStart = givenIsStart;
         isMoveOn = givenIsMoveOn;
+        isExist = givenIsExist;
     }
     ~SWPoint(){}
     void setColor(bool givenColor){
@@ -38,6 +41,12 @@ public:
     }
     bool getIsMoveOn() const {
         return isMoveOn;
+    }
+    void setIsExist(bool givenIsExist){
+        isExist = givenIsExist;
+    }
+    bool getIsExist() const {
+        return isExist;
     }
 };
 
@@ -71,6 +80,10 @@ public:
         int index = (pointRow - 1) * col + pointCol - 1;
         sameWorldMatrix[index].setIsMoveOn(givenIsMoveOn);
     }
+    void setMatrixPointIsExist(int pointRow, int pointCol, bool givenIsExist){
+        int index = (pointRow - 1) * col + pointCol - 1;
+        sameWorldMatrix[index].setIsExist(givenIsExist);
+    }
     bool getMatrixPointColor(int pointRow, int pointCol){
         int index = (pointRow - 1) * col + pointCol - 1;
         return sameWorldMatrix[index].getColor();
@@ -82,6 +95,10 @@ public:
     bool getMatrixPointIsMoveOn(int pointRow, int pointCol){
         int index = (pointRow - 1) * col + pointCol - 1;
         return sameWorldMatrix[index].getIsMoveOn();
+    }
+    bool getMatrixPointIsExist(int pointRow, int pointCol){
+        int index = (pointRow - 1) * col + pointCol - 1;
+        return sameWorldMatrix[index].getIsExist();
     }
     SWPoint& getMatrixPoint(int pointRow, int pointCol) {
         int index = (pointRow - 1) * col + pointCol - 1;
