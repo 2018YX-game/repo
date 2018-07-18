@@ -12,11 +12,11 @@ void GameAPP::run()
 
 
     _levelPageWindow.set_ptrCommand(viewmodel->getLayoutCommand());
-    _gameWindow.set_ptrMouseMoveCommand(viewmodel->getMouseMoveCommand());
+    _gameWindow.set_ptrPointChangeTrackingCommand(viewmodel->getMouseMoveCommand());
     _gameWindow.set_Martix(viewmodel->getSWMatrix());
     viewmodel->AddPropertyNotification(_gameWindow.getPtrWindowProSink());
-    viewmodel->AddCommandNotification(_gameWindow.getPtrWindowSetSink());
-    viewmodel->AddCommandNotification(_gameWindow.getPtrMouseMoveCommandSink());
+    viewmodel->AddCommandNotification(_gameWindow.getPtrNewLayoutSink());
+    viewmodel->AddCommandNotification(_gameWindow.getPtrPointChangeTrackingSink());
 
     sp_StartButtonCommand_ = std::make_shared<StartButtonCommand>(this);
     _spGameWindowCommand = std::make_shared<gameWindowCommand>(this);

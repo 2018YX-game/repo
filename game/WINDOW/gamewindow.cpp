@@ -8,7 +8,7 @@ gamewindow::gamewindow(QWidget *parent) :
     ui->setupUi(this);
     _ptrgWindowPROSink= std::make_shared<gamewindowProSink>(gamewindowProSink(this));
     _ptrnewLayoutCommandSink=std::make_shared<newLayoutCommandSink>(newLayoutCommandSink(this));
-    _ptrMouseMoveCommandSink=std::make_shared<mouseMoveCommandSink>(mouseMoveCommandSink(this));
+    _ptrPointChangeTrackingSink=std::make_shared<pointChangeTrackingSink>(pointChangeTrackingSink(this));
     _ptrGameCompleteSink=std::make_shared<gameCompleteSink>(gameCompleteSink(this));
     set_Martix(NULL);
 }
@@ -19,21 +19,21 @@ std::shared_ptr<IPropertyNotification> gamewindow::getPtrWindowProSink(void){
     return std::static_pointer_cast<IPropertyNotification>(_ptrgWindowPROSink);
 }
 
-std::shared_ptr<ICommandNotification> gamewindow::getPtrWindowSetSink(void){
+std::shared_ptr<ICommandNotification> gamewindow::getPtrNewLayoutSink(void){
 
     return std::static_pointer_cast<ICommandNotification>(_ptrnewLayoutCommandSink);
 }
 
-std::shared_ptr<ICommandNotification> gamewindow::getPtrMouseMoveCommandSink(void){
-     return std::static_pointer_cast<ICommandNotification>(_ptrMouseMoveCommandSink);
+std::shared_ptr<ICommandNotification> gamewindow::getPtrPointChangeTrackingSink(void){
+     return std::static_pointer_cast<ICommandNotification>(_ptrPointChangeTrackingSink);
 }
 
 std::shared_ptr<IPropertyNotification> gamewindow::getPtrGameCompleteSink(void){
      return std::static_pointer_cast<IPropertyNotification>(_ptrGameCompleteSink);
 }
 
-void gamewindow::set_ptrMouseMoveCommand(std::shared_ptr<ICommandBase> ptrMouseMoveCommand){
-    _ptrMouseMoveCommand = ptrMouseMoveCommand;
+void gamewindow::set_ptrPointChangeTrackingCommand(std::shared_ptr<ICommandBase> ptrPointChangeTrackingCommand){
+    _ptrPointChangeTrackingCommand = ptrPointChangeTrackingCommand;
 }
 
 void gamewindow::set_ptrGameCompleteCommand(std::shared_ptr<ICommandBase> ptrGameCompleteCommand){
@@ -140,10 +140,10 @@ void gamewindow::mouseMoveEvent(QMouseEvent *e){
         }
         else if((y-row*80-40)<=40&&(x-col*80-40)<=40){
             qDebug()<<row<<col;
-                std::string a=std::to_string(row)+" "+std::to_string(col);
-           _ptrMouseMoveCommand->SetParameter(_new_any_space_::any_cast<std::string>(a));
-              _ptrMouseMoveCommand->Exec();
-              gamewindow::update();
+            std::string a=std::to_string(row)+" "+std::to_string(col);
+            _ptrPointChangeTrackingCommand->SetParameter(_new_any_space_::any_cast<std::string>(a));
+            _ptrPointChangeTrackingCommand->Exec();
+            gamewindow::update();
         }
         else{
             ;
@@ -154,7 +154,7 @@ void gamewindow::mouseMoveEvent(QMouseEvent *e){
 void gamewindow::mouseReleaseEvent(QMouseEvent *e){
     qDebug()<<0<<0;
     std::string a=std::to_string(0)+" "+std::to_string(0);
-    _ptrMouseMoveCommand->SetParameter(_new_any_space_::any_cast<std::string>(a));
-    _ptrMouseMoveCommand->Exec();
+    _ptrPointChangeTrackingCommand->SetParameter(_new_any_space_::any_cast<std::string>(a));
+    _ptrPointChangeTrackingCommand->Exec();
     gamewindow::update();
 }

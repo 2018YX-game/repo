@@ -35,14 +35,14 @@ SOURCES += \
     APP/app.cpp \
     APP/commands/startbuttoncommand.cpp \
     VIEWMODEL/commands/mousemovecommand.cpp \
-    WINDOW/sinks/mousemovecommandsink.cpp \
     WINDOW/form.cpp \
     WINDOW/levelpage.cpp \
     WINDOW/sinks/newlayoutcommandsink.cpp \
     APP/commands/gamewindowcommand.cpp \
     WINDOW/sinks/gamecompletesink.cpp \
     APP/commands/gamecompletecommand.cpp \
-    APP/commands/startbuttoncommand.cpp
+    APP/commands/startbuttoncommand.cpp \
+    WINDOW/sinks/pointchangetrackingsink.cpp
 
 HEADERS += \
     common/etlbase.h \
@@ -58,7 +58,6 @@ HEADERS += \
     APP/app.h \
     APP/commands/startbuttoncommand.h \
     VIEWMODEL/commands/mousemovecommand.h \
-    WINDOW/sinks/mousemovecommandsink.h \
     WINDOW/form.h \
     WINDOW/levelpage.h \
     WINDOW/sinks/newlayoutcommandsink.h \
@@ -66,7 +65,8 @@ HEADERS += \
     APP/commands/gamewindowcommand.h \
     APP/commands/gamecompletecommand.h \
     APP/commands/gamewindowcommand.h \
-    APP/commands/startbuttoncommand.h
+    APP/commands/startbuttoncommand.h \
+    WINDOW/sinks/pointchangetrackingsink.h
 
 FORMS += \
     WINDOW/startpage.ui \

@@ -1,10 +1,10 @@
 #include "../gamewindow.h"
-#include "mousemovecommandsink.h"
-mouseMoveCommandSink::mouseMoveCommandSink(gamewindow *ptr)
+#include "pointchangetrackingsink.h"
+pointChangeTrackingSink::pointChangeTrackingSink(gamewindow *ptr)
 {
     ptr_gamewindow = ptr;
 }
-void mouseMoveCommandSink::OnCommandComplete(const std::string& str, bool bOK)
+void pointChangeTrackingSink::OnCommandComplete(const std::string& str, bool bOK)
 {
     if(str=="mouseMoveCommand"){
         if(bOK==false){
