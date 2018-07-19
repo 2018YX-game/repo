@@ -50,13 +50,19 @@ public:
     }
 };
 
+typedef struct passingPointCoordinate{
+    int row;
+    int col;
+}passPoint;
+
 class SWMatrix
 {
 private:
     int row;
     int col;
     int level;
-   std::vector<SWPoint> sameWorldMatrix;
+    std::vector<SWPoint> sameWorldMatrix;
+    std::vector<passPoint> track;
 public:
     SWMatrix(){
          row=0;
@@ -69,6 +75,7 @@ public:
         level = givenLevel;
         sameWorldMatrix.resize(0);
         sameWorldMatrix.resize(row * col);
+        track.resize(0);
     }
     void setMatrixPointColor(int pointRow, int pointCol, bool givenColor){
         int index = (pointRow - 1) * col + pointCol - 1;
@@ -86,6 +93,21 @@ public:
         int index = (pointRow - 1) * col + pointCol - 1;
         sameWorldMatrix[index].setIsExist(givenIsExist);
     }
+
+    void setTrackFront(int pointRow, int pointCol){
+        passPoint p;
+        p.row = pointRow;
+        p.col = pointCol;
+        track.push_back(p);
+    }
+    void setTrackBack(){
+        track.pop_back();
+    }
+
+    std::vector<passPoint>&getTrack(){
+        return track;
+    }
+
     bool getMatrixPointColor(int pointRow, int pointCol){
         int index = (pointRow - 1) * col + pointCol - 1;
         return sameWorldMatrix[index].getColor();
