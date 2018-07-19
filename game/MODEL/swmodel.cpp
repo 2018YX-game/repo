@@ -12,7 +12,7 @@ std::shared_ptr<SWMatrix> SWModel::getSWMatrix(){
 void SWModel::newLayout(int level)
 {
 
-    if(level == 1){
+    if(level == 1||level==11){
         int row = 5;
         int col = 5;
         sp_SWMatrix->initialMatrix(row,col,1);
@@ -291,7 +291,7 @@ complete:   std::vector<passPoint> track=sp_SWMatrix->getTrack();
                    return ;
                }
                else{
-                goto complete;
+                return;
                }
             }
         sp_SWMatrix->setTrackFront(curRow,curCol);//纪录新点
