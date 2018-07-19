@@ -10,10 +10,11 @@ void GameAPP::run()
 
     viewmodel->setSWModel(model);
 
-
+    _formWindow.setNewGameCommand(viewmodel->getLayoutCommand());
     _levelPageWindow.set_ptrCommand(viewmodel->getLayoutCommand());
     _gameWindow.set_ptrPointChangeTrackingCommand(viewmodel->getMouseMoveCommand());
     _gameWindow.set_Martix(viewmodel->getSWMatrix());
+    _formWindow.setMartix(viewmodel->getSWMatrix());
     viewmodel->AddPropertyNotification(_gameWindow.getPtrWindowProSink());
     viewmodel->AddCommandNotification(_gameWindow.getPtrNewLayoutSink());
     viewmodel->AddCommandNotification(_gameWindow.getPtrPointChangeTrackingSink());
@@ -21,11 +22,12 @@ void GameAPP::run()
     _spStartButtonCommand = std::make_shared<StartButtonCommand>(this);
     _spGameWindowCommand = std::make_shared<gameWindowCommand>(this);
     _spGameCompleteCommand = std::make_shared<gamecompletecommand>(this);
+    _spGameAgainCommand = std::make_shared<gameAgainCommand>(this);
     _startpageWindow.set_ptrCommand(std::static_pointer_cast<ICommandBase>(this->_spStartButtonCommand));
     _formWindow.setMenuCommand(std::static_pointer_cast<ICommandBase>(this->_spStartButtonCommand));
     _levelPageWindow.set_ptrOpenCommand(std::static_pointer_cast<ICommandBase>(this->_spGameWindowCommand));
     _gameWindow.set_ptrGameCompleteCommand(std::static_pointer_cast<ICommandBase>(this->_spGameCompleteCommand));
-
+    _formWindow.setOpenCommand(std::static_pointer_cast<ICommandBase>(this->_spGameAgainCommand));
     _startpageWindow.show();
 }
 startpage* GameAPP::getStartPage()

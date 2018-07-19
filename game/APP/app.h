@@ -10,6 +10,7 @@
 #include "commands/startbuttoncommand.h"
 #include "commands/gamewindowcommand.h"
 #include "commands/gamecompletecommand.h"
+#include "commands/gameagaincommand.h"
 class GameAPP
 {
 private:
@@ -19,6 +20,7 @@ private:
     gamewindow _gameWindow;
     std::shared_ptr<SWModel> model;
     std::shared_ptr<SWViewModel> viewmodel;
+    std::shared_ptr<gameAgainCommand> _spGameAgainCommand;
     std::shared_ptr<gamecompletecommand> _spGameCompleteCommand;
     std::shared_ptr<StartButtonCommand> _spStartButtonCommand;
     std::shared_ptr<gameWindowCommand> _spGameWindowCommand;

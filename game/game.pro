@@ -42,7 +42,8 @@ SOURCES += \
     WINDOW/sinks/gamecompletesink.cpp \
     APP/commands/gamecompletecommand.cpp \
     APP/commands/startbuttoncommand.cpp \
-    WINDOW/sinks/pointchangetrackingsink.cpp
+    WINDOW/sinks/pointchangetrackingsink.cpp \
+    APP/commands/gameagaincommand.cpp
 
 HEADERS += \
     common/etlbase.h \
@@ -66,7 +67,8 @@ HEADERS += \
     APP/commands/gamecompletecommand.h \
     APP/commands/gamewindowcommand.h \
     APP/commands/startbuttoncommand.h \
-    WINDOW/sinks/pointchangetrackingsink.h
+    WINDOW/sinks/pointchangetrackingsink.h \
+    APP/commands/gameagaincommand.h
 
 FORMS += \
     WINDOW/startpage.ui \
