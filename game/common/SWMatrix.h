@@ -8,19 +8,16 @@ class SWPoint
 private:
     bool color;
     int isStart;
-    bool isMoveOn;
     bool isExist;
 public:
     SWPoint(){
         color = 0;
         isStart = 0;
-        isMoveOn = 0;
         isExist = 1;
     }
-    SWPoint(bool givenColor, int givenIsStart, bool givenIsMoveOn, bool givenIsExist){
+    SWPoint(bool givenColor, int givenIsStart, bool givenIsExist){
         color = givenColor;
         isStart = givenIsStart;
-        isMoveOn = givenIsMoveOn;
         isExist = givenIsExist;
     }
     ~SWPoint(){}
@@ -35,12 +32,6 @@ public:
     }
     int getIsStart() const {
         return isStart;
-    }
-    void setIsMoveOn(bool givenIsMoveOn){
-        isMoveOn = givenIsMoveOn;
-    }
-    bool getIsMoveOn() const {
-        return isMoveOn;
     }
     void setIsExist(bool givenIsExist){
         isExist = givenIsExist;
@@ -85,10 +76,6 @@ public:
         int index = (pointRow - 1) * col + pointCol - 1;
         sameWorldMatrix[index].setIsStart(givenIsStart);
     }
-    void setMatrixPointIsMoveOn(int pointRow, int pointCol, bool givenIsMoveOn){
-        int index = (pointRow - 1) * col + pointCol - 1;
-        sameWorldMatrix[index].setIsMoveOn(givenIsMoveOn);
-    }
     void setMatrixPointIsExist(int pointRow, int pointCol, bool givenIsExist){
         int index = (pointRow - 1) * col + pointCol - 1;
         sameWorldMatrix[index].setIsExist(givenIsExist);
@@ -104,6 +91,23 @@ public:
         track.pop_back();
     }
 
+    void trackClear(){
+        track.clear();
+    }
+
+    passPoint getLastPointofTrack(){
+        return track.back();
+    }
+
+    bool isPassOn(int givenRow, int givenCol){
+        for(int i = 0; i < track.size(); i++){
+            if(track[i].row == givenRow && track[i].col == givenCol){
+                return true;
+            }
+        }
+        return false;
+    }
+
     std::vector<passPoint>&getTrack(){
         return track;
     }
@@ -115,10 +119,6 @@ public:
     int getMatrixPointIsStart(int pointRow, int pointCol){
         int index = (pointRow - 1) * col + pointCol - 1;
         return sameWorldMatrix[index].getIsStart();
-    }
-    bool getMatrixPointIsMoveOn(int pointRow, int pointCol){
-        int index = (pointRow - 1) * col + pointCol - 1;
-        return sameWorldMatrix[index].getIsMoveOn();
     }
     bool getMatrixPointIsExist(int pointRow, int pointCol){
         int index = (pointRow - 1) * col + pointCol - 1;
