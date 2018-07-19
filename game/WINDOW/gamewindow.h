@@ -33,7 +33,7 @@ public:
     void paintEvent(QPaintEvent *);
     void set_ptrPointChangeTrackingCommand(std::shared_ptr<ICommandBase> ptrPointChangeTrackingCommand);
     void set_ptrGameCompleteCommand(std::shared_ptr<ICommandBase> ptrGameCompleteCommand);
-    void openForm();
+    void openForm(const std::string& str);
 
  private:
     Ui::gamewindow *ui;

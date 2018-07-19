@@ -40,7 +40,8 @@ void gamewindow::set_ptrGameCompleteCommand(std::shared_ptr<ICommandBase> ptrGam
     _ptrGameCompleteCommand = ptrGameCompleteCommand;
 }
 
-void gamewindow::openForm(){
+void gamewindow::openForm(const std::string& str){
+    _ptrGameCompleteCommand->SetParameter(_new_any_space_::any_cast<std::string>(str));
     _ptrGameCompleteCommand->Exec();
 }
 
