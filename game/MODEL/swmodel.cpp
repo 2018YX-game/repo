@@ -237,7 +237,7 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
         if(sp_SWMatrix->isTrackNotNull()==0){
             return; //如果track为空，不做任何事
         }
-        std::vector<passPoint> track=sp_SWMatrix->getTrack();
+complete:   std::vector<passPoint> track=sp_SWMatrix->getTrack();
         sp_SWMatrix->setMatrixPointIsStart( track[0].row,track[0].col,0);
         for(int i = 0; i < track.size(); i++){
             changePointColor(track[i].row,track[i].col);//翻转每个点的颜色
@@ -279,10 +279,12 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
         if((delta_row==0 && delta_col==1)||(delta_row==0 && delta_col==-1)
                 ||(delta_row==-1 && delta_col==0)||(delta_row==1 && delta_col==0)){
             if(sp_SWMatrix->getMatrixPointIsExist(curRow,curCol)==0) return ;
+            if(sp_SWMatrix->isPassOn(curRow,curCol)) return;
         sp_SWMatrix->setTrackFront(curRow,curCol);//纪录新点
         }
-
-        ;//其他情况，do nothing
+        else{//其他情况，本次连线结束
+            goto complete;
+        }
     }
     Fire_OnPropertyChanged("SWMatrix");
 }
