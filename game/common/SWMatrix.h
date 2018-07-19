@@ -105,7 +105,7 @@ public:
     }
 
     int getTrackSize(){
-        return track.size();
+        return (int)track.size();
     }
 
     bool isPassOn(int givenRow, int givenCol){
