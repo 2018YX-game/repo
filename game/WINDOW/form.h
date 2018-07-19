@@ -20,6 +20,7 @@ public:
     void setMenuCommand(std::shared_ptr<ICommandBase> ptr_menu);
     void setOpenCommand(std::shared_ptr<ICommandBase> ptr_open);
     void setNewGameCommand(std::shared_ptr<ICommandBase> ptr_newgame);
+    void setLabel(const std::string& str);
 
 private slots:
     void on_menuButton_clicked();
