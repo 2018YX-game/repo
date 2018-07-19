@@ -284,10 +284,11 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
             else
                 Fire_OnPropertyChanged("GameFailed");
 
-            for(int i=1; i<=nrow; i++){
-                for(int j=1;j<=ncol;j++){
-                    sp_SWMatrix->setMatrixPointIsMoveOn(i,j,0);
-                }
+
+        }
+        for(int i=1; i<=nrow; i++){
+            for(int j=1;j<=ncol;j++){
+                sp_SWMatrix->setMatrixPointIsMoveOn(i,j,0);
             }
         }
     }
