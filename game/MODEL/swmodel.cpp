@@ -301,7 +301,7 @@ complete:   std::vector<passPoint> track=sp_SWMatrix->getTrack();
             ;
         }
         else{//其他情况，本次连线结束
-            goto complete;
+       //     goto complete;
         }
     }
     Fire_OnPropertyChanged("SWMatrix");
