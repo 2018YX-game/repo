@@ -36,11 +36,13 @@ void Form::on_menuButton_clicked(){
 void Form::on_nextButton_clicked(){
     level = 1+ _spMartix->getMatrixLevel();
     ptr_newGameCommand->SetParameter(_new_any_space_::any_cast<int>(level));
+    ptr_newGameCommand->Exec();
     ptr_openCommand->Exec();
 }
 
 void Form::on_againButton_clicked(){
     level = _spMartix->getMatrixLevel();
     ptr_newGameCommand->SetParameter(_new_any_space_::any_cast<int>(level));
+    ptr_newGameCommand->Exec();
     ptr_openCommand->Exec();
 }
