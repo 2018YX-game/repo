@@ -135,10 +135,18 @@ void gamewindow::paintEvent(QPaintEvent *)
           }
           for(int i=0;i<this->_spMartix->getTrackSize();i++){
               QPen pen;
+              bool color=this->_spMartix->getMatrixPointColor(this->_spMartix->getTrack()[i].row,this->_spMartix->getTrack()[i].col);
+
               pen.setWidth(7);
               pen.setBrush(QColor(178, 58, 238));
               painter.setPen(pen);
               painter.setBrush(Qt::white);
+
+              if(color)
+                  painter.setBrush(Qt::white);
+              else
+                  painter.setBrush(Qt::black);
+
               painter.setRenderHint(QPainter::Antialiasing, true);
               painter.drawEllipse(40 + 80 * (this->_spMartix->getTrack()[i].col-1), 40 + 80 * (this->_spMartix->getTrack()[i].row-1), 40, 40);
           }
