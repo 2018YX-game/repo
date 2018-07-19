@@ -243,7 +243,27 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
             changePointColor(track[i].row,track[i].col);//翻转每个点的颜色
         }
         sp_SWMatrix->trackClear(); //清空track
-    }
+        //检查逻辑
+        int nrow = sp_SWMatrix->getMatrixRow();
+        int ncol = sp_SWMatrix->getMatrixCol();
+        bool flag = 0;
+        int IsStart_flag =0;
+        int curColor = -1;
+        for(int i=1;i<=nrow;i++){
+            for(int j=1;j<=ncol;j++){
+                if(sp_SWMatrix->getMatrixPointIsExist(i,j)==0) continue;
+            IsStart_flag+=sp_SWMatrix->getMatrixPointIsStart(i,j);
+            if(curColor==-1)curColor=sp_SWMatrix->getMatrixPointColor(i,j);
+            if(curColor!=sp_SWMatrix->getMatrixPointColor(i,j)) flag=1;
+            }
+        }
+
+            if(IsStart_flag==0){
+                if(!flag)  Fire_OnPropertyChanged("GameComplete");
+                else  Fire_OnPropertyChanged("GameFailed");
+            }
+            return ;
+        }
     else if(sp_SWMatrix->isTrackNotNull()==0){
         if(sp_SWMatrix->getMatrixPointIsStart(curRow,curCol))
             sp_SWMatrix->setTrackFront(curRow,curCol); //如果是起点，记录起点
