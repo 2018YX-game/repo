@@ -126,7 +126,7 @@ void gamewindow::paintEvent(QPaintEvent *)
           //画出经过的轨迹
           painter.setPen(QColor(0, 160, 230));
           painter.setRenderHint(QPainter::Antialiasing, true);
-          for(int i=1;i<this->_spMartix->getTrackSize()-1;i++){
+          for(int i=0;i<this->_spMartix->getTrackSize()-1;i++){
               int start_x = (this->_spMartix->getTrack()[i].row-1)*80+60;
               int start_y = (this->_spMartix->getTrack()[i].col-1)*80+60;
               int end_x = (this->_spMartix->getTrack()[i+1].row-1)*80+60;
