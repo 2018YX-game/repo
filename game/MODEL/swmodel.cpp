@@ -11,8 +11,7 @@ std::shared_ptr<SWMatrix> SWModel::getSWMatrix(){
 
 void SWModel::newLayout(int level)
 {
-    lastRow = 0;
-    lastCol = 0;
+
     if(level == 1){
         int row = 5;
         int col = 5;
@@ -222,14 +221,87 @@ void SWModel::newLayout(int level)
 
 }
 
+
+void SWModel::changePointColor(int curRow, int curCol){
+    if(sp_SWMatrix->getMatrixPointColor(curRow,curCol)==0){
+        sp_SWMatrix->setMatrixPointColor(curRow,curCol,1);
+    }
+    else{
+        sp_SWMatrix->setMatrixPointColor(curRow,curCol,0);
+    }
+}
+
 void SWModel::mouseMoveChange(int curRow, int curCol)
 {
+    if(curCol==0){
+        if(sp_SWMatrix->isTrackNotNull()==0){
+            return; //如果track为空，不做任何事
+        }
+        std::vector<passPoint> track=sp_SWMatrix->getTrack();
+        sp_SWMatrix->setMatrixPointIsStart( track[0].row,track[0].col,0);
+        for(int i = 0; i < track.size(); i++){
+            changePointColor(track[i].row,track[i].col);//翻转每个点的颜色
+        }
+        sp_SWMatrix->trackClear(); //清空track
+    }
+    else if(sp_SWMatrix->isTrackNotNull()==0){
+        if(sp_SWMatrix->getMatrixPointIsStart(curRow,curCol))
+            sp_SWMatrix->setTrackFront(curRow,curCol); //如果是起点，记录起点
+        return ; //不是起点，do nothing
+    }
+    else if(sp_SWMatrix->getLastPointofTrack().row==curRow&&sp_SWMatrix->getLastPointofTrack().col==curCol){
+        ;//停留在当前点，do nothing
+    }
+    else{
+        passPoint lastpoint=sp_SWMatrix->getLastPointofTrack();
+        int delta_row = curRow - lastpoint.row;
+        int delta_col = curCol - lastpoint.col;
+        if((delta_row==0 && delta_col==1)||(delta_row==0 && delta_col==-1)
+                ||(delta_row==-1 && delta_col==0)||(delta_row==1 && delta_col==0)){
+        sp_SWMatrix->setTrackFront(curRow,curCol);//纪录新点
+        }
+
+        ;//其他情况，do nothing
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+
+
+
+
+
     if(lastRow==0 && lastCol==0 && curRow!=0){
 
         if(sp_SWMatrix->getMatrixPointIsStart(curRow,curCol)){
             lastRow = curRow;
             lastCol = curCol;
-            sp_SWMatrix->setMatrixPointIsMoveOn(curRow,curCol,1);
+
         }
     }
 
@@ -288,7 +360,7 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
         }
         for(int i=1; i<=nrow; i++){
             for(int j=1;j<=ncol;j++){
-                sp_SWMatrix->setMatrixPointIsMoveOn(i,j,0);
+
             }
         }
     }
@@ -313,19 +385,14 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
         }
 
 
-        else if(!(sp_SWMatrix->getMatrixPointIsMoveOn(curRow,curCol))){
+        else if(1){
 
 
             if((delta_row==0 && delta_col==1)||(delta_row==0 && delta_col==-1)||(delta_row==-1 && delta_col==0)||(delta_row==1 && delta_col==0)){
                 sp_SWMatrix->setMatrixPointIsStart(curRow,curCol,1);
                 sp_SWMatrix->setMatrixPointIsStart(lastRow,lastCol,0);
-                sp_SWMatrix->setMatrixPointIsMoveOn(curRow,curCol,1);
-                if(sp_SWMatrix->getMatrixPointColor(lastRow,lastCol)==0){
-                    sp_SWMatrix->setMatrixPointColor(lastRow,lastCol,1);
-                }
-                else{
-                    sp_SWMatrix->setMatrixPointColor(lastRow,lastCol,0);
-                }
+
+
                 lastRow = curRow;
                 lastCol = curCol;
             }
@@ -338,12 +405,12 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
                 int ncol = sp_SWMatrix->getMatrixCol();
                 for(int i=1; i<=nrow; i++){
                     for(int j=1;j<=ncol;j++){
-                        sp_SWMatrix->setMatrixPointIsMoveOn(i,j,0);
+
                     }
                 }
-            sp_SWMatrix->setMatrixPointIsMoveOn(3,3,0);
+
                 sp_SWMatrix->setMatrixPointIsStart(lastRow,lastCol,0);
-                sp_SWMatrix->setMatrixPointIsMoveOn(curRow,curCol,1);
+
 
                 if(sp_SWMatrix->getMatrixPointColor(lastRow,lastCol)==0){
                     sp_SWMatrix->setMatrixPointColor(lastRow,lastCol,1);
@@ -357,6 +424,6 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
 
         }
     }
-
+*/
     Fire_OnPropertyChanged("SWMatrix");
 }
