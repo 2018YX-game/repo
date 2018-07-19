@@ -99,6 +99,18 @@ public:
         return track.back();
     }
 
+    passPoint getSecondLastPointofTrack(){
+        int n = (int)track.size();
+        if(n<2){
+            passPoint p;
+            p.row = 0;
+            p.col = 0;
+            return p;
+        }
+        else
+            return track[n-2];
+    }
+
     bool isTrackNotNull(){
         if(track.size() == 0) return false;
         return true;
