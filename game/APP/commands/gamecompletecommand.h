@@ -8,6 +8,7 @@ class gamecompletecommand: public ICommandBase
 {
 private:
     GameAPP *ptrApp;
+    std::string _str;
 public:
     gamecompletecommand(GameAPP *ptr_App);
     ~gamecompletecommand();
