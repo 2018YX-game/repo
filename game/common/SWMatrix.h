@@ -104,6 +104,10 @@ public:
         return true;
     }
 
+    int getTrackSize(){
+        return track.size();
+    }
+
     bool isPassOn(int givenRow, int givenCol){
         for(int i = 0; i < track.size(); i++){
             if(track[i].row == givenRow && track[i].col == givenCol){
