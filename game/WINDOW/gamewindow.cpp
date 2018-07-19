@@ -123,6 +123,17 @@ void gamewindow::paintEvent(QPaintEvent *)
 
               }
           }
+          //画出经过的轨迹
+          painter.setPen(QColor(0, 160, 230));
+          painter.setRenderHint(QPainter::Antialiasing, true);
+          for(int i=1;i<this->_spMartix->getTrackSize()-1;i++){
+              int start_x = (this->_spMartix->getTrack()[i].row-1)*80+60;
+              int start_y = (this->_spMartix->getTrack()[i].col-1)*80+60;
+              int end_x = (this->_spMartix->getTrack()[i+1].row-1)*80+60;
+              int end_y = (this->_spMartix->getTrack()[i+1].col-1)*80+60;
+              painter.drawLine(QPointF(start_y,start_x),QPointF(end_y,end_x));
+          }
+
       }
 }
 
