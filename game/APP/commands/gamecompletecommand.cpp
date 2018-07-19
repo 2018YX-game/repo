@@ -15,6 +15,8 @@ void gamecompletecommand::SetParameter(const _new_any_space_::any& param)
 }
 void gamecompletecommand::Exec()
 {
+    (ptrApp->getGameWindow())->repaint();
+    Sleep(500);
     (ptrApp->getGameWindow())->close();
     (ptrApp->getFormWindow())->show();
      (ptrApp->getFormWindow())->setLabel(_str);

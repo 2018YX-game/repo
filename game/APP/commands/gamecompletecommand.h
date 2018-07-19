@@ -2,7 +2,7 @@
 #define GAMECOMPLETECOMMAND_H
 
 #include "../../common/etlbase.h"
-
+#include "Windows.h"
 class GameAPP;
 class gamecompletecommand: public ICommandBase
 {
