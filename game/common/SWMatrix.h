@@ -99,6 +99,11 @@ public:
         return track.back();
     }
 
+    bool isTrackNotNull(){
+        if(track.size() == 0) return false;
+        return true;
+    }
+
     bool isPassOn(int givenRow, int givenCol){
         for(int i = 0; i < track.size(); i++){
             if(track[i].row == givenRow && track[i].col == givenCol){
