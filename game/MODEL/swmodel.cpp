@@ -274,6 +274,7 @@ complete:   std::vector<passPoint> track=sp_SWMatrix->getTrack();
     else if(sp_SWMatrix->getLastPointofTrack().row==curRow&&sp_SWMatrix->getLastPointofTrack().col==curCol){
         ;//停留在当前点，do nothing
     }
+
     else{
         passPoint lastpoint=sp_SWMatrix->getLastPointofTrack();
         int delta_row = curRow - lastpoint.row;
@@ -295,6 +296,9 @@ complete:   std::vector<passPoint> track=sp_SWMatrix->getTrack();
                }
             }
         sp_SWMatrix->setTrackFront(curRow,curCol);//纪录新点
+        }
+        else if(sp_SWMatrix->isPassOn(curRow,curCol)){
+            ;
         }
         else{//其他情况，本次连线结束
             goto complete;
