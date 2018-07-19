@@ -49,6 +49,9 @@ void Form::on_againButton_clicked(){
 
 void Form::setLabel(const std::string& str){
     if(str == "GameComplete"){
-        ui->output->setText("Success!");
+        ui->output->setText("Succeed!");
+    }
+    else if(str == "GameFailed"){
+        ui->output->setText("Fail!");
     }
 }

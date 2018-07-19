@@ -7,7 +7,7 @@ gameCompleteSink::gameCompleteSink(gamewindow *ptr)
 }
 
 void gameCompleteSink::OnPropertyChanged(const std::string& str){
-    if(str=="GameComplete"){
+    if(str=="GameComplete" || (str=="GameFailed")){
         ptr_gamewindow->openForm(str);
     }
 }
