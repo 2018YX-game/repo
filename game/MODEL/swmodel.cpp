@@ -234,7 +234,7 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
     }
 
     //鼠标释放，lastpoint变色，检查矩阵是否颜色统一
-    else if(curRow==0 & lastRow != 0){
+    else if(curRow==0 && lastRow != 0){
         sp_SWMatrix->setMatrixPointIsStart(lastRow,lastCol,0);
 
         if(sp_SWMatrix->getMatrixPointColor(lastRow,lastCol)==0){
@@ -247,30 +247,47 @@ void SWModel::mouseMoveChange(int curRow, int curCol)
         lastRow = curRow;
         lastCol = curCol;
 
+
         //检查逻辑
         int nrow = sp_SWMatrix->getMatrixRow();
         int ncol = sp_SWMatrix->getMatrixCol();
-        bool curColor = sp_SWMatrix->getMatrixPointColor(1,1);
-        bool flag = 0;
-        for(int i=1; i<=nrow; i++){
-            for(int j=1;j<=ncol;j++){
-                bool tempColor = sp_SWMatrix->getMatrixPointColor(i,j);
-                if(tempColor != curColor){
-                    flag =1;
+        int IsStart_flag=0;
+
+        for(int i=1;i<=nrow;i++){
+            for(int j=1;j<=ncol;j++)
+                if(sp_SWMatrix->getMatrixPointIsStart(i,j)==1){
+                    IsStart_flag=1;
                     break;
                 }
-            }
-            if(flag){
+            if(IsStart_flag==1){
                 break;
             }
         }
-        if(!flag){
-            Fire_OnPropertyChanged("GameComplete");
-        }
+        if(!IsStart_flag){
+            bool curColor = sp_SWMatrix->getMatrixPointColor(1,1);
+            bool flag = 0;
+            for(int i=1; i<=nrow; i++){
+                for(int j=1;j<=ncol;j++){
+                    bool tempColor = sp_SWMatrix->getMatrixPointColor(i,j);
+                    if(tempColor != curColor){
+                        flag =1;
+                        break;
+                    }
+                }
+                if(flag){
+                    break;
+                }
+            }
+            if(!flag){
+                Fire_OnPropertyChanged("GameComplete");
+            }
+            else
+                Fire_OnPropertyChanged("GameFailed");
 
-        for(int i=1; i<=nrow; i++){
-            for(int j=1;j<=ncol;j++){
-                sp_SWMatrix->setMatrixPointIsMoveOn(i,j,0);
+            for(int i=1; i<=nrow; i++){
+                for(int j=1;j<=ncol;j++){
+                    sp_SWMatrix->setMatrixPointIsMoveOn(i,j,0);
+                }
             }
         }
     }
