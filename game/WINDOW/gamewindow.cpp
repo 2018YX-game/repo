@@ -84,9 +84,10 @@ void gamewindow::paintEvent(QPaintEvent *)
                       if(color==1){
                           QPen pen;
                           pen.setWidth(7);
-                          pen.setBrush(Qt::black);
+                          pen.setBrush(QColor(0, 160, 230));
                           painter.setPen(pen);
                           painter.setBrush(Qt::white);
+                          painter.setRenderHint(QPainter::Antialiasing, true);
                           painter.drawEllipse(40 + 80 * j, 40 + 80 * i, 40, 40);
 
                       }
@@ -96,6 +97,7 @@ void gamewindow::paintEvent(QPaintEvent *)
                           pen.setBrush(Qt::white);
                           painter.setPen(pen);
                           painter.setBrush(Qt::black);
+                          painter.setRenderHint(QPainter::Antialiasing, true);
                           painter.drawEllipse(40 + 80 * j, 40 + 80 * i, 40, 40);
 
                       }
@@ -103,12 +105,14 @@ void gamewindow::paintEvent(QPaintEvent *)
                   else if (color==1){
                       painter.setPen(Qt::white);
                       painter.setBrush(Qt::white);
+                      painter.setRenderHint(QPainter::Antialiasing, true);
                       painter.drawEllipse(40 + 80 * j, 40 + 80 * i, 40, 40);
 
                   }
                   else{
                       painter.setPen(Qt::black);
                       painter.setBrush(Qt::black);
+                      painter.setRenderHint(QPainter::Antialiasing, true);
                       painter.drawEllipse(40 + 80 * j, 40 + 80 * i, 40, 40);
 
                   }
