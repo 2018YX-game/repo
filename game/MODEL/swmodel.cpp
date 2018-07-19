@@ -1,5 +1,5 @@
 #include "swmodel.h"
-
+#include "Windows.h"
 SWModel::SWModel()
 {
     sp_SWMatrix = std::make_shared<SWMatrix>();
@@ -259,6 +259,8 @@ complete:   std::vector<passPoint> track=sp_SWMatrix->getTrack();
         }
 
             if(IsStart_flag==0){
+                Fire_OnPropertyChanged("SWMatrix");
+//                Sleep(1000);
                 if(!flag)  Fire_OnPropertyChanged("GameComplete");
                 else  Fire_OnPropertyChanged("GameFailed");
             }
