@@ -281,7 +281,19 @@ complete:   std::vector<passPoint> track=sp_SWMatrix->getTrack();
         if((delta_row==0 && delta_col==1)||(delta_row==0 && delta_col==-1)
                 ||(delta_row==-1 && delta_col==0)||(delta_row==1 && delta_col==0)){
             if(sp_SWMatrix->getMatrixPointIsExist(curRow,curCol)==0) return ;
-            if(sp_SWMatrix->isPassOn(curRow,curCol)) return;
+            if(sp_SWMatrix->isPassOn(curRow,curCol)){
+               passPoint secondlastpoint = sp_SWMatrix->getSecondLastPointofTrack();
+               if(secondlastpoint.col==0){
+                   ;
+               }
+               else if(secondlastpoint.col=curCol&&secondlastpoint.row==curRow){
+                   sp_SWMatrix->setTrackBack();
+                   return ;
+               }
+               else{
+                goto complete;
+               }
+            }
         sp_SWMatrix->setTrackFront(curRow,curCol);//纪录新点
         }
         else{//其他情况，本次连线结束
