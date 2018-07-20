@@ -45,6 +45,12 @@ void gamewindow::openForm(const std::string& str){
     _ptrGameCompleteCommand->Exec();
 }
 
+void gamewindow::setGameAgainCommand(std::shared_ptr<ICommandBase> ptr_newgame){
+    _ptrGameAgainCommand = ptr_newgame;
+}
+
+
+
 gamewindow::~gamewindow()
 {
     delete ui;
@@ -189,5 +195,15 @@ void gamewindow::mouseReleaseEvent(QMouseEvent *e){
     std::string a=std::to_string(0)+" "+std::to_string(0);
     _ptrPointChangeTrackingCommand->SetParameter(_new_any_space_::any_cast<std::string>(a));
     _ptrPointChangeTrackingCommand->Exec();
+    gamewindow::update();
+}
+
+
+
+void gamewindow::on_pushButton_clicked()
+{
+    int level = _spMartix->getMatrixLevel();
+    _ptrGameAgainCommand->SetParameter(_new_any_space_::any_cast<int>(level));
+    _ptrGameAgainCommand->Exec();
     gamewindow::update();
 }

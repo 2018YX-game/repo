@@ -33,7 +33,11 @@ public:
     void paintEvent(QPaintEvent *);
     void set_ptrPointChangeTrackingCommand(std::shared_ptr<ICommandBase> ptrPointChangeTrackingCommand);
     void set_ptrGameCompleteCommand(std::shared_ptr<ICommandBase> ptrGameCompleteCommand);
+    void setGameAgainCommand(std::shared_ptr<ICommandBase> ptr_newgame);
     void openForm(const std::string& str);
+
+ private slots:
+    void on_pushButton_clicked();
 
  private:
     Ui::gamewindow *ui;
@@ -44,6 +48,7 @@ public:
     std::shared_ptr<gameCompleteSink> _ptrGameCompleteSink;
     std::shared_ptr<ICommandBase> _ptrPointChangeTrackingCommand;
     std::shared_ptr<ICommandBase> _ptrGameCompleteCommand;
+    std::shared_ptr<ICommandBase> _ptrGameAgainCommand;
 };
 
 #endif // GAMEWINDOW_H
