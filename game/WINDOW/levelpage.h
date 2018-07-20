@@ -30,6 +30,11 @@ private slots:
     void on_level8_clicked();
     void on_level9_clicked();
     void on_level10_clicked();
+    void on_level11_clicked();
+    void on_level12_clicked();
+    void on_level13_clicked();
+    void on_level14_clicked();
+    void on_level15_clicked();
 
 private:
     Ui::levelPage *ui;

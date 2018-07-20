@@ -109,35 +109,35 @@ void levelPage::on_level10_clicked(){
     _ptrCommand->Exec();
 }
 
-void levelPage::on_level6_clicked(){
+void levelPage::on_level11_clicked(){
     openGameWindow();
     level = 11;
     _ptrCommand->SetParameter(_new_any_space_::any_cast<int>(level));
     _ptrCommand->Exec();
 }
 
-void levelPage::on_level6_clicked(){
+void levelPage::on_level12_clicked(){
     openGameWindow();
     level = 12;
     _ptrCommand->SetParameter(_new_any_space_::any_cast<int>(level));
     _ptrCommand->Exec();
 }
 
-void levelPage::on_level6_clicked(){
+void levelPage::on_level13_clicked(){
     openGameWindow();
     level = 13;
     _ptrCommand->SetParameter(_new_any_space_::any_cast<int>(level));
     _ptrCommand->Exec();
 }
 
-void levelPage::on_level6_clicked(){
+void levelPage::on_level14_clicked(){
     openGameWindow();
     level = 14;
     _ptrCommand->SetParameter(_new_any_space_::any_cast<int>(level));
     _ptrCommand->Exec();
 }
 
-void levelPage::on_level6_clicked(){
+void levelPage::on_level15_clicked(){
     openGameWindow();
     level = 15;
     _ptrCommand->SetParameter(_new_any_space_::any_cast<int>(level));
