@@ -44,7 +44,9 @@ SOURCES += \
     APP/commands/startbuttoncommand.cpp \
     WINDOW/sinks/pointchangetrackingsink.cpp \
     APP/commands/gameagaincommand.cpp \
-    WINDOW/teamview.cpp
+    WINDOW/teamview.cpp \
+    APP/commands/teamviewcommand.cpp \
+    APP/commands/returnstartpagecommand.cpp
 
 HEADERS += \
     common/etlbase.h \
@@ -70,7 +72,9 @@ HEADERS += \
     APP/commands/startbuttoncommand.h \
     WINDOW/sinks/pointchangetrackingsink.h \
     APP/commands/gameagaincommand.h \
-    WINDOW/teamview.h
+    WINDOW/teamview.h \
+    APP/commands/teamviewcommand.h \
+    APP/commands/returnstartpagecommand.h
 
 FORMS += \
     WINDOW/startpage.ui \
