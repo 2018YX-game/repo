@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>320</width>
-    <height>240</height>
+    <width>361</width>
+    <height>248</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,21 +16,18 @@
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
-  <property name="styleSheet">
-   <string notr="true">background-image: url(:/backgroung/images/background/Doodle Jump-跳回_2x(hop-bck_2x)_爱给网_aigei_com.png);</string>
-  </property>
   <widget class="QLabel" name="output">
    <property name="geometry">
     <rect>
-     <x>69</x>
+     <x>60</x>
      <y>50</y>
-     <width>181</width>
+     <width>241</width>
      <height>50</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>微软雅黑</family>
+     <family>Segoe Print</family>
      <pointsize>28</pointsize>
     </font>
    </property>
@@ -44,10 +41,10 @@
   <widget class="QPushButton" name="menuButton">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>140</y>
-     <width>51</width>
-     <height>51</height>
+     <x>20</x>
+     <y>150</y>
+     <width>91</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -57,7 +54,8 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/png/images/png/egame_sdk_ico_list.png);</string>
+    <string notr="true">
+border-image: url(:/button/images/button/Doodle Jump-菜单_2x(menu_2x)_爱给网_aigei_com.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -72,10 +70,10 @@
   <widget class="QPushButton" name="nextButton">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>120</y>
-     <width>81</width>
-     <height>91</height>
+     <x>240</x>
+     <y>150</y>
+     <width>101</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -88,7 +86,7 @@
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/png/images/png/Arrow_01.png);</string>
+    <string notr="true">border-image: url(:/button/images/button/Doodle Jump-玩上_2x(play-on_2x)_爱给网_aigei_com.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -103,10 +101,10 @@
   <widget class="QPushButton" name="againButton">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>120</y>
+     <x>130</x>
+     <y>150</y>
      <width>91</width>
-     <height>91</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -115,7 +113,7 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/png/images/png/restart_BT.png);</string>
+    <string notr="true">border-image: url(:/button/images/button/playagain.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -127,6 +125,27 @@
     </size>
    </property>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>-10</y>
+     <width>751</width>
+     <height>331</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/backgroung/images/background/whiteBack.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>output</zorder>
+  <zorder>menuButton</zorder>
+  <zorder>nextButton</zorder>
+  <zorder>againButton</zorder>
  </widget>
  <resources/>
  <connections/>
