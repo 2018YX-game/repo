@@ -29,7 +29,7 @@ void SWModel::newLayout(int level)
         sp_SWMatrix->setMatrixPointIsStart(3,1,1);
         Fire_OnPropertyChanged("SWMatrix");
     }
-    if(level == 2){
+   else if(level == 2){
         int row = 5;
         int col = 4;
         sp_SWMatrix->initialMatrix(row,col,2);
@@ -44,7 +44,7 @@ void SWModel::newLayout(int level)
         sp_SWMatrix->setMatrixPointIsStart(3,4,1);
         Fire_OnPropertyChanged("SWMatrix");
     }
-    if(level==3){
+    else if(level==4){
         int row = 5;
         int col = 4;
         sp_SWMatrix->initialMatrix(row,col,3);
@@ -65,7 +65,7 @@ void SWModel::newLayout(int level)
 
         Fire_OnPropertyChanged("SWMatrix");
     }
-    if(level==4){
+   else  if(level==5){
         int row = 5;
         int col = 4;
         sp_SWMatrix->initialMatrix(row,col,4);
@@ -78,7 +78,7 @@ void SWModel::newLayout(int level)
 
         Fire_OnPropertyChanged("SWMatrix");
     }
-    if(level==5){
+    else if(level==3){
         int row = 6;
         int col = 5;
         sp_SWMatrix->initialMatrix(row,col,5);
@@ -100,7 +100,7 @@ void SWModel::newLayout(int level)
         sp_SWMatrix->setMatrixPointIsStart(3,5,1);
         Fire_OnPropertyChanged("SWMatrix");
     }
-    if(level==6){
+    else if(level==6){
         int row = 6;
         int col = 5;
         sp_SWMatrix->initialMatrix(row,col,6);
@@ -125,7 +125,7 @@ void SWModel::newLayout(int level)
         sp_SWMatrix->setMatrixPointIsStart(6,4,1);
         Fire_OnPropertyChanged("SWMatrix");
     }
-    if(level==7){
+   else  if(level==7){
         int row = 6;
         int col = 5;
         sp_SWMatrix->initialMatrix(row,col,7);
@@ -141,7 +141,7 @@ void SWModel::newLayout(int level)
         sp_SWMatrix->setMatrixPointIsStart(6,5,1);
         Fire_OnPropertyChanged("SWMatrix");
     }
-    if(level==8){
+    else if(level==8){
         int row = 5;
         int col = 4;
         sp_SWMatrix->initialMatrix(row,col,8);
@@ -159,7 +159,7 @@ void SWModel::newLayout(int level)
 
         Fire_OnPropertyChanged("SWMatrix");
     }
-    if(level==9){
+    else if(level==9){
         int row = 6;
         int col = 5;
         sp_SWMatrix->initialMatrix(row,col,9);
@@ -189,7 +189,7 @@ void SWModel::newLayout(int level)
 
         Fire_OnPropertyChanged("SWMatrix");
     }
-    if(level==10){
+    else if(level==10){
         int row = 6;
         int col = 5;
         sp_SWMatrix->initialMatrix(row,col,10);
