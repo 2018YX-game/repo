@@ -1,0 +1,35 @@
+<RCC>
+    <qresource prefix="/jpg">
+        <file>images/jpg/4.jpg</file>
+        <file>images/jpg/bg_5.jpg</file>
+        <file>images/jpg/bg_6.jpg</file>
+        <file>images/jpg/bg_7.jpg</file>
+        <file>images/jpg/bg_10.jpg</file>
+        <file>images/jpg/TheSameWorld.jpg</file>
+    </qresource>
+    <qresource prefix="/png">
+        <file>images/png/Arrow_01.png</file>
+        <file>images/png/CloseNormal.png</file>
+        <file>images/png/egame_sdk_ico_forum.png</file>
+        <file>images/png/egame_sdk_ico_list.png</file>
+        <file>images/png/egame_sdk_ico_question.png</file>
+        <file>images/png/gc_piccode_refresh.png</file>
+        <file>images/png/icon.png</file>
+        <file>images/png/restart_BT.png</file>
+        <file>images/png/Screenshot_20180715-155916.png</file>
+        <file>images/png/suspend_BT.png</file>
+        <file>images/png/tips_BT.png</file>
+    </qresource>
+    <qresource prefix="/gif">
+        <file>images/gif/1.gif</file>
+        <file>images/gif/2.gif</file>
+        <file>images/gif/3.gif</file>
+        <file>images/gif/4.gif</file>
+        <file>images/gif/5.gif</file>
+        <file>images/gif/6.gif</file>
+        <file>images/gif/7.gif</file>
+        <file>images/gif/8.gif</file>
+        <file>images/gif/9.gif</file>
+        <file>images/gif/10.gif</file>
+    </qresource>
+</RCC>

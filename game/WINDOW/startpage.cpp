@@ -6,6 +6,14 @@ startpage::startpage(QWidget *parent) :
     ui(new Ui::startpage)
 {
     ui->setupUi(this);
+    this->resize(400, 300);
+    QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    sizePolicy.setHorizontalStretch(0);
+    sizePolicy.setVerticalStretch(0);
+    sizePolicy.setHeightForWidth(this->sizePolicy().hasHeightForWidth());
+    this->setSizePolicy(sizePolicy);
+    this->setMinimumSize(QSize(400, 300));
+    this->setMaximumSize(QSize(400, 300));
 }
 
 startpage::~startpage()
@@ -18,6 +26,10 @@ void startpage::set_ptrCommand(std::shared_ptr<ICommandBase> ptrCommand){
     _ptrCommand=ptrCommand;
 }
 
+void startpage::set_ptrTeamButtonCommand(std::shared_ptr<ICommandBase> ptrTeamButtonCommand){
+    _ptrTeamButtonCommand=ptrTeamButtonCommand;
+}
+
 void startpage::on_startbutton_clicked()
 {
     _ptrCommand->Exec();
@@ -26,4 +38,9 @@ void startpage::on_startbutton_clicked()
 void startpage::on_quitbutton_clicked()
 {
     qApp->exit(0);
+}
+
+void startpage::on_teambutton_clicked()
+{
+    _ptrTeamButtonCommand->Exec();
 }

@@ -43,7 +43,8 @@ SOURCES += \
     APP/commands/gamecompletecommand.cpp \
     APP/commands/startbuttoncommand.cpp \
     WINDOW/sinks/pointchangetrackingsink.cpp \
-    APP/commands/gameagaincommand.cpp
+    APP/commands/gameagaincommand.cpp \
+    WINDOW/teamview.cpp
 
 HEADERS += \
     common/etlbase.h \
@@ -68,12 +69,17 @@ HEADERS += \
     APP/commands/gamewindowcommand.h \
     APP/commands/startbuttoncommand.h \
     WINDOW/sinks/pointchangetrackingsink.h \
-    APP/commands/gameagaincommand.h
+    APP/commands/gameagaincommand.h \
+    WINDOW/teamview.h
 
 FORMS += \
     WINDOW/startpage.ui \
     WINDOW/gamewindow.ui \
     WINDOW/form.ui \
-    WINDOW/levelpage.ui
+    WINDOW/levelpage.ui \
+    WINDOW/teamview.ui
 
 CONFIG += c++17
+
+RESOURCES += \
+    images.qrc

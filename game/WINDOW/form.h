@@ -29,7 +29,6 @@ private slots:
 
 private:
     Ui::Form *ui;
-    int level;
     std::shared_ptr<SWMatrix> _spMartix;
     std::shared_ptr<ICommandBase> ptr_newGameCommand;
     std::shared_ptr<ICommandBase> ptr_menuCommand;
