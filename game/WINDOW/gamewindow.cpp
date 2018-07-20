@@ -94,7 +94,7 @@ void gamewindow::paintEvent(QPaintEvent *)
                       else {
                           QPen pen;
                           pen.setWidth(7);
-                          pen.setBrush(Qt::white);
+                          pen.setBrush(QColor(0, 160, 230));
                           painter.setPen(pen);
                           painter.setBrush(Qt::black);
                           painter.setRenderHint(QPainter::Antialiasing, true);
