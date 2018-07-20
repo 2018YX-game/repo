@@ -2,12 +2,17 @@
  ![https://ci.appveyor.com/api/projects/status/32r7s2skrgm9ubva?svg=true](https://ci.appveyor.com/api/projects/status/32r7s2skrgm9ubva?svg=true)  
 
 ## 问题和背景
-### 需求分析
-### 功能实现
 
+
+见 [需求分析文档](https://github.com/2018YX-game/repo/blob/master/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90.md)  
 
 
 ## 开发计划和分工
+
+第一轮迭代由张思淡负责View和Window层，吕慕凡负责Model和ViewModel层，王航宇负责APP层。  
+第二轮迭代由吕慕凡负责View和Window层，王航宇负责Model和ViewModel层，张思淡负责APP层。  
+第一轮迭代由王航宇负责View和Window层，张思淡负责Model和ViewModel层，吕慕凡负责APP层。  
+三轮迭代完成，每个人都把MVVM框架的各个分工都做了一遍。  
 
 ## 每轮迭代效果说明
 
@@ -29,7 +34,6 @@ app层把model,viewmodel,window层组装起来，把接收器挂在发送器上�
 ## 小组成员
 - 组长： 
   - 张思淡 ： 进行分工协调，在第一轮迭代中负责实现VIEW层
-
 
 - 组员：
   - 吕慕凡： 第一轮迭代中负责实现Model层各项基本功能
