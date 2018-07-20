@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>629</width>
+    <height>519</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,21 +16,17 @@
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
-  <property name="styleSheet">
-   <string notr="true">background-image: url(:/backgroung/images/background/Doodle Jump-跳回_2x(hop-bck_2x)_爱给网_aigei_com.png);</string>
-  </property>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>31</width>
+     <width>81</width>
      <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/png/images/png/gc_piccode_refresh.png);
-background-color: rgb(255, 255, 255);</string>
+    <string notr="true">border-image: url(:/button/images/button/Doodle Jump-简历_2x(resume_2x)_爱给网_aigei_com.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -45,16 +41,16 @@ background-color: rgb(255, 255, 255);</string>
   <widget class="QLabel" name="levelnumber">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>120</x>
      <y>0</y>
-     <width>121</width>
+     <width>161</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>微软雅黑</family>
-     <pointsize>20</pointsize>
+     <family>Segoe Print</family>
+     <pointsize>18</pointsize>
     </font>
    </property>
    <property name="text">
@@ -64,6 +60,43 @@ background-color: rgb(255, 255, 255);</string>
     <set>Qt::AlignHCenter|Qt::AlignTop</set>
    </property>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>460</y>
+     <width>631</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/button/images/button/groundGrass.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>0</y>
+     <width>81</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+border-image: url(:/backgroung/images/background/Star.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label_2</zorder>
+  <zorder>pushButton</zorder>
+  <zorder>levelnumber</zorder>
+  <zorder>label</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

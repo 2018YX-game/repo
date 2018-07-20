@@ -76,10 +76,15 @@ void gamewindow::paintEvent(QPaintEvent *)
           ;
       }
       else{
-          this->resize(60 + 80 * col, 60 + 80 * row);
+          int width=60+80*col;
+          int height=60+80*row;
+          this->resize(width, height);
           QString levelstring = tr( "Level: %1 " ).arg( level );
           ui->levelnumber->setText(levelstring);
-          ui->levelnumber->move((60+80*col)/2-60,0);
+          ui->levelnumber->move(width/2-60,0);
+          ui->label_2->move(width-90,0);
+          ui->label->resize(width,width/10);
+          ui->label->move(0,height-width/10);
 
 
           for (i = 0; i < row; i++) {
@@ -94,7 +99,7 @@ void gamewindow::paintEvent(QPaintEvent *)
                       if(color==1){
                           QPen pen;
                           pen.setWidth(7);
-                          pen.setBrush(QColor(0, 160, 230));
+                          pen.setBrush(QColor(210, 210, 210));
                           painter.setPen(pen);
                           painter.setBrush(Qt::white);
                           painter.setRenderHint(QPainter::Antialiasing, true);
@@ -104,7 +109,7 @@ void gamewindow::paintEvent(QPaintEvent *)
                       else {
                           QPen pen;
                           pen.setWidth(7);
-                          pen.setBrush(QColor(0, 160, 230));
+                          pen.setBrush(QColor(210, 210, 210));
                           painter.setPen(pen);
                           painter.setBrush(Qt::black);
                           painter.setRenderHint(QPainter::Antialiasing, true);
@@ -134,7 +139,7 @@ void gamewindow::paintEvent(QPaintEvent *)
               }
           }
           //画出经过的轨迹
-          painter.setPen(QPen(QColor(178, 58, 238),5));
+          painter.setPen(QPen(QColor(255, 215, 0),5));
           painter.setRenderHint(QPainter::Antialiasing, true);
           for(int i=0;i<this->_spMartix->getTrackSize()-1;i++){
               int start_x = (this->_spMartix->getTrack()[i].row-1)*80+60;
@@ -148,7 +153,7 @@ void gamewindow::paintEvent(QPaintEvent *)
               bool color=this->_spMartix->getMatrixPointColor(this->_spMartix->getTrack()[i].row,this->_spMartix->getTrack()[i].col);
 
               pen.setWidth(7);
-              pen.setBrush(QColor(178, 58, 238));
+              pen.setBrush(QColor(255, 215, 0));
               painter.setPen(pen);
               painter.setBrush(Qt::white);
 
