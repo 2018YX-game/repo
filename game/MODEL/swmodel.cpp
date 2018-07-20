@@ -47,7 +47,7 @@ void SWModel::newLayout(int level)
     else if(level==4){
         int row = 5;
         int col = 4;
-        sp_SWMatrix->initialMatrix(row,col,3);
+        sp_SWMatrix->initialMatrix(row,col,4);
 
         sp_SWMatrix->setMatrixPointIsExist(1,2,0);
         sp_SWMatrix->setMatrixPointIsExist(1,3,0);
@@ -68,7 +68,7 @@ void SWModel::newLayout(int level)
    else  if(level==5){
         int row = 5;
         int col = 4;
-        sp_SWMatrix->initialMatrix(row,col,4);
+        sp_SWMatrix->initialMatrix(row,col,5);
         for(int j=1;j<=col;j++){
             sp_SWMatrix->setMatrixPointColor(2,j,1);
             sp_SWMatrix->setMatrixPointColor(4,j,1);
@@ -81,7 +81,7 @@ void SWModel::newLayout(int level)
     else if(level==3){
         int row = 6;
         int col = 5;
-        sp_SWMatrix->initialMatrix(row,col,5);
+        sp_SWMatrix->initialMatrix(row,col,3);
 
         sp_SWMatrix->setMatrixPointColor(1,2,1);
         sp_SWMatrix->setMatrixPointColor(1,4,1);
