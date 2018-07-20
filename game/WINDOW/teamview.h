@@ -21,6 +21,8 @@ private slots:
 
     void on_backButton_clicked();
 
+    void on_contactButton_clicked();
+
 private:
     Ui::TeamView *ui;
     std::shared_ptr<ICommandBase> _ptrStartPageCommand;
