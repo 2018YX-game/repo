@@ -69,8 +69,9 @@ void gamewindow::paintEvent(QPaintEvent *)
       int col = this->_spMartix->getMatrixCol();
       int row = this->_spMartix->getMatrixRow();
 
-      painter.setBrush(Qt::gray);
-      painter.drawRect(this->rect());
+      QPalette palette;
+      palette.setBrush(QPalette::Background, QBrush(QColor(255, 239, 213)));
+      setPalette(palette);
       int i, j;
       if(row==0&&col==0){
           ;
@@ -99,7 +100,7 @@ void gamewindow::paintEvent(QPaintEvent *)
                       if(color==1){
                           QPen pen;
                           pen.setWidth(7);
-                          pen.setBrush(QColor(210, 210, 210));
+                          pen.setBrush(QColor(150, 150, 150));
                           painter.setPen(pen);
                           painter.setBrush(Qt::white);
                           painter.setRenderHint(QPainter::Antialiasing, true);
@@ -109,7 +110,7 @@ void gamewindow::paintEvent(QPaintEvent *)
                       else {
                           QPen pen;
                           pen.setWidth(7);
-                          pen.setBrush(QColor(210, 210, 210));
+                          pen.setBrush(QColor(150, 150, 150));
                           painter.setPen(pen);
                           painter.setBrush(Qt::black);
                           painter.setRenderHint(QPainter::Antialiasing, true);

@@ -22,7 +22,7 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/backgroung/images/background/Doodle Jump-bck_2x_爱给网_aigei_com.png);</string>
+   <string notr="true">background-image: url(:/backgroung/images/background/originBack.png);</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="startbutton">
