@@ -6,14 +6,14 @@ levelPage::levelPage(QWidget *parent) :
     ui(new Ui::levelPage)
 {
     ui->setupUi(this);
-    this->resize(400, 300);
-    QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    sizePolicy.setHorizontalStretch(0);
-    sizePolicy.setVerticalStretch(0);
-    sizePolicy.setHeightForWidth(this->sizePolicy().hasHeightForWidth());
-    this->setSizePolicy(sizePolicy);
-    this->setMinimumSize(QSize(400, 300));
-    this->setMaximumSize(QSize(400, 300));
+   // this->resize(400, 300);
+   // QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+   // sizePolicy.setHorizontalStretch(0);
+   // sizePolicy.setVerticalStretch(0);
+  //  sizePolicy.setHeightForWidth(this->sizePolicy().hasHeightForWidth());
+    //this->setSizePolicy(sizePolicy);
+    //this->setMinimumSize(QSize(400, 300));
+   // this->setMaximumSize(QSize(400, 300));
     //滑块响应槽
 
 

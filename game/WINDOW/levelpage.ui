@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>levelPage</class>
  <widget class="QWidget" name="levelPage">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,8 +16,8 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <property name="autoFillBackground">
-   <bool>true</bool>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/jpg/images/jpg/bg_6.jpg);</string>
   </property>
   <widget class="QPushButton" name="level1">
    <property name="geometry">
