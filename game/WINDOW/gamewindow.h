@@ -35,7 +35,6 @@ public:
     void set_ptrGameCompleteCommand(std::shared_ptr<ICommandBase> ptrGameCompleteCommand);
     void setGameAgainCommand(std::shared_ptr<ICommandBase> ptr_newgame);
     void openForm(const std::string& str);
-    void setLabel(const std::string& str);
 
  private slots:
     void on_pushButton_clicked();

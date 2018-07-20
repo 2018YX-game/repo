@@ -42,14 +42,23 @@ background-color: rgb(255, 255, 255);</string>
   <widget class="QLabel" name="levelnumber">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>10</y>
-     <width>151</width>
-     <height>31</height>
+     <x>140</x>
+     <y>0</y>
+     <width>121</width>
+     <height>41</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>20</pointsize>
+    </font>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignHCenter|Qt::AlignTop</set>
    </property>
   </widget>
  </widget>

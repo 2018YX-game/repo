@@ -65,7 +65,7 @@ void gamewindow::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
 
-
+      int level=_spMartix->getMatrixLevel();
       int col = this->_spMartix->getMatrixCol();
       int row = this->_spMartix->getMatrixRow();
 
@@ -77,6 +77,10 @@ void gamewindow::paintEvent(QPaintEvent *)
       }
       else{
           this->resize(60 + 80 * col, 60 + 80 * row);
+          QString levelstring = tr( "Level: %1 " ).arg( level );
+          ui->levelnumber->setText(levelstring);
+          ui->levelnumber->move((60+80*col)/2-60,0);
+
 
           for (i = 0; i < row; i++) {
               for (j = 0; j < col; j++) {
@@ -207,7 +211,4 @@ void gamewindow::on_pushButton_clicked()
     _ptrGameAgainCommand->Exec();
     gamewindow::update();
 }
-void gamewindow::setLabel(const std::string& str){
-     ui->levelnumber->setText("Level：  "+(_spMartix->getMatrixLevel()));
 
-}
