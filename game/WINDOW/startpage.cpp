@@ -6,14 +6,14 @@ startpage::startpage(QWidget *parent) :
     ui(new Ui::startpage)
 {
     ui->setupUi(this);
-    this->resize(400, 300);
-    QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    sizePolicy.setHorizontalStretch(0);
-    sizePolicy.setVerticalStretch(0);
-    sizePolicy.setHeightForWidth(this->sizePolicy().hasHeightForWidth());
-    this->setSizePolicy(sizePolicy);
-    this->setMinimumSize(QSize(400, 300));
-    this->setMaximumSize(QSize(400, 300));
+  //  this->resize(400, 300);
+   // QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+   // sizePolicy.setHorizontalStretch(0);
+   // sizePolicy.setVerticalStretch(0);
+   // sizePolicy.setHeightForWidth(this->sizePolicy().hasHeightForWidth());
+   // this->setSizePolicy(sizePolicy);
+   // this->setMinimumSize(QSize(400, 300));
+ //   this->setMaximumSize(QSize(400, 300));
 
     this->setWindowTitle(tr("The Same World"));//可执行程序标题
     this->setWindowIcon(QIcon("logo.ico"));//可执行程序图标

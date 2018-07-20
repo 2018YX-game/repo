@@ -14,7 +14,10 @@
    <string>gamewindow</string>
   </property>
   <property name="autoFillBackground">
-   <bool>true</bool>
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/backgroung/images/background/Doodle Jump-跳回_2x(hop-bck_2x)_爱给网_aigei_com.png);</string>
   </property>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">

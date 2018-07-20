@@ -32,4 +32,33 @@
         <file>images/gif/9.gif</file>
         <file>images/gif/10.gif</file>
     </qresource>
+    <qresource prefix="/button">
+        <file>images/button/Doodle Jump-菜单_2x(menu_2x)_爱给网_aigei_com.png</file>
+        <file>images/button/Doodle Jump-分数(scores)_爱给网_aigei_com.png</file>
+        <file>images/button/Doodle Jump-简历_2x(resume_2x)_爱给网_aigei_com.png</file>
+        <file>images/button/Doodle Jump-取消_2x(cancel_2x)_爱给网_aigei_com.png</file>
+        <file>images/button/Doodle Jump-玩上_2x(play-on_2x)_爱给网_aigei_com.png</file>
+        <file>images/button/Doodle Jump-戏剧_2x(play_2x)_爱给网_aigei_com.png</file>
+        <file>images/button/Doodle Jump-游戏-再-上_2x(play-aga_爱给网_aigei_com.png</file>
+        <file>images/button/Doodle Jump-做对_2x(done-on_2x)_爱给网_aigei_com.png</file>
+        <file>images/button/Doodle Jump-doodlestein-puca-o_爱给网_aigei_com.png</file>
+        <file>images/button/Doodle Jump-ach 螺旋桨_2x(ach-pro_爱给网_aigei_com.png</file>
+        <file>images/button/Doodle Jump-选项(options)_爱给网_aigei_com.png</file>
+        <file>images/button/Doodle Jump-选项上(options-on)_爱给网_aigei_com.png</file>
+    </qresource>
+    <qresource prefix="/backgroung">
+        <file>images/background/Doodle Jump-_ 的 bottom-bug-瓦片】_爱给网_aigei_com.png</file>
+        <file>images/background/Doodle Jump-bck_2x_爱给网_aigei_com.png</file>
+        <file>images/background/Doodle Jump-bck_爱给网_aigei_com.png</file>
+        <file>images/background/Doodle Jump-丛林中后卫_2x(jungle-bc_爱给网_aigei_com.png</file>
+        <file>images/background/Doodle Jump-鬼月亮_2x(ghost-moon__爱给网_aigei_com.png</file>
+        <file>images/background/Doodle Jump-空间背_2x(space-bck_2_爱给网_aigei_com.png</file>
+        <file>images/background/Doodle Jump-水下背_2x(underwater-_爱给网_aigei_com.png</file>
+        <file>images/background/Doodle Jump-跳回(hop-bck)_爱给网_aigei_com.png</file>
+        <file>images/background/Doodle Jump-跳回_2x(hop-bck_2x)_爱给网_aigei_com.png</file>
+        <file>images/background/Doodle Jump-新闻背后_2x(news-bck_2_爱给网_aigei_com.png</file>
+        <file>images/background/Doodle Jump-星星2_2x(stars2_2x)_爱给网_aigei_com.png</file>
+        <file>images/background/Doodle Jump-足球后卫(soccer-bck)_爱给网_aigei_com.png</file>
+        <file>images/background/Doodle Jump-足球后卫_2x(soccer-bck_爱给网_aigei_com.png</file>
+    </qresource>
 </RCC>
