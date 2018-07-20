@@ -19,18 +19,18 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>41</width>
-     <height>41</height>
+     <x>10</x>
+     <y>10</y>
+     <width>31</width>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/png/images/png/gc_piccode_refresh.png);
+background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string/>
-   </property>
-   <property name="icon">
-    <iconset resource="../images.qrc">
-     <normaloff>:/png/images/png/gc_piccode_refresh.png</normaloff>:/png/images/png/gc_piccode_refresh.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -39,10 +39,21 @@
     </size>
    </property>
   </widget>
+  <widget class="QLabel" name="levelnumber">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>10</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="../images.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

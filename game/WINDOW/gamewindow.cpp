@@ -207,3 +207,7 @@ void gamewindow::on_pushButton_clicked()
     _ptrGameAgainCommand->Exec();
     gamewindow::update();
 }
+void gamewindow::setLabel(const std::string& str){
+     ui->levelnumber->setText("Level：  "+(_spMartix->getMatrixLevel()));
+
+}

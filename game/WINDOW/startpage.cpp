@@ -14,6 +14,9 @@ startpage::startpage(QWidget *parent) :
     this->setSizePolicy(sizePolicy);
     this->setMinimumSize(QSize(400, 300));
     this->setMaximumSize(QSize(400, 300));
+
+    this->setWindowTitle(tr("The Same World"));//可执行程序标题
+    this->setWindowIcon(QIcon("logo.ico"));//可执行程序图标
 }
 
 startpage::~startpage()

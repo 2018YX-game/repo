@@ -15,9 +15,10 @@ class TeamView : public QDialog
 public:
     explicit TeamView(QWidget *parent = 0);
     ~TeamView();
+    void setStartPageCommand(std::shared_ptr<ICommandBase> ptr_startpage);
 
 private slots:
-    void setStartPageCommand(std::shared_ptr<ICommandBase> ptr_startpage);
+
     void on_backButton_clicked();
 
 private:
