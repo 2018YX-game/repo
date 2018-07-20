@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>512</width>
-    <height>362</height>
+    <height>381</height>
    </rect>
   </property>
   <property name="font">
@@ -88,16 +88,18 @@ border-image: url(:/button/images/button/Doodle Jump-玩上_2x(play-on_2x)_爱�
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>30</x>
       <y>30</y>
-      <width>391</width>
+      <width>461</width>
       <height>71</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Bauhaus 93</family>
-      <pointsize>40</pointsize>
+      <family>Segoe Print</family>
+      <pointsize>32</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -108,7 +110,7 @@ border-image: url(:/button/images/button/Doodle Jump-玩上_2x(play-on_2x)_爱�
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>270</y>
+      <y>280</y>
       <width>81</width>
       <height>71</height>
      </rect>
@@ -132,8 +134,28 @@ border-image: url(:/button/images/button/Doodle Jump-玩上_2x(play-on_2x)_爱�
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>340</y>
+      <width>521</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/button/images/button/groundGrass.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>startbutton</zorder>
+   <zorder>quitbutton</zorder>
+   <zorder>label</zorder>
+   <zorder>label_2</zorder>
+   <zorder>teambutton</zorder>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
