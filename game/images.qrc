@@ -57,6 +57,7 @@
         <file>images/button/groundGhost.png</file>
         <file>images/button/groundGrass.png</file>
         <file>images/button/KanBan.png</file>
+        <file>images/button/nextButton.jpg</file>
     </qresource>
     <qresource prefix="/backgroung">
         <file>images/background/whiteBack.png</file>

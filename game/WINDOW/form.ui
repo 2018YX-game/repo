@@ -72,7 +72,7 @@ border-image: url(:/button/images/button/Doodle Jump-菜单_2x(menu_2x)_爱给�
     <rect>
      <x>240</x>
      <y>150</y>
-     <width>101</width>
+     <width>91</width>
      <height>41</height>
     </rect>
    </property>
@@ -86,7 +86,7 @@ border-image: url(:/button/images/button/Doodle Jump-菜单_2x(menu_2x)_爱给�
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/button/images/button/Doodle Jump-玩上_2x(play-on_2x)_爱给网_aigei_com.png);</string>
+    <string notr="true">border-image: url(:/button/images/button/nextButton.jpg);</string>
    </property>
    <property name="text">
     <string/>
