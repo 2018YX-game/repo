@@ -9,7 +9,7 @@ void GameAPP::run()
     viewmodel = std::make_shared<SWViewModel>();
 
     viewmodel->setSWModel(model);
-
+    _gameWindow.setGameAgainCommand(viewmodel->getLayoutCommand());
     _formWindow.setNewGameCommand(viewmodel->getLayoutCommand());
     _levelPageWindow.set_ptrCommand(viewmodel->getLayoutCommand());
     _gameWindow.set_ptrPointChangeTrackingCommand(viewmodel->getMouseMoveCommand());
