@@ -37,7 +37,7 @@ Model和ViewModel层修改了游戏的逻辑判断。
 ### 项目目录树
 ![tree1.png](image_storage/tree1.png)   
 ![tree2.png](image_storage/tree2.png)   
-!tree3.png](image_storage/tree3.png)   
+![tree3.png](image_storage/tree3.png)   
 ## 最终运行效果图
 
 ## 小组成员
