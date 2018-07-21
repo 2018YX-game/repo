@@ -25,7 +25,10 @@ Model和ViewModel层实现了更新矩阵和游戏逻辑判断功能。
 第二轮迭代包括0.4版。  
 第二轮迭代中Window层增加了2个页面，一个选关卡界面，一个游戏成功或失败的通知界面。  
 Model和ViewModel层增加关卡数到10关，并且实现显示的图案的形状不仅仅是长方形的。       
-
+![2.1.png](image_storage/2.1.png)   
+![2.2.png](image_storage/2.2.png)   
+![2.3.png](image_storage/2.3.png)  
+![2.4.png](image_storage/2.3.png)  
 ### 第三轮迭代
 第三轮迭代包括0.5版。  
 第二轮迭代中Window层主要美化了界面，并更改了翻转的效果。  
