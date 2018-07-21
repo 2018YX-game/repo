@@ -11,7 +11,7 @@
 
 第一轮迭代由张思淡负责View和Window层，吕慕凡负责Model和ViewModel层，王航宇负责APP层。  
 第二轮迭代由吕慕凡负责View和Window层，王航宇负责Model和ViewModel层，张思淡负责APP层。  
-第一轮迭代由王航宇负责View和Window层，张思淡负责Model和ViewModel层，吕慕凡负责APP层。  
+第三轮迭代由王航宇负责View和Window层，张思淡负责Model和ViewModel层，吕慕凡负责APP层。  
 三轮迭代完成，每个人都把MVVM框架的各个分工都做了一遍。  
 
 ## 每轮迭代效果说明
@@ -19,7 +19,8 @@
 第一轮迭代包括0.0版,0.1版,0.2版和0.3版。  
 第一轮迭代中Window层有2个页面，一个开始游戏页面，一个游戏界面。  
 Model和ViewModel层实现了更新矩阵和游戏逻辑判断功能。  
-
+![1.1.png](image_storage/1.1.png)  
+![1.2.png](image_storage/1.2.png)  
 ### 第二轮迭代
 第二轮迭代包括0.4版。  
 第二轮迭代中Window层增加了2个页面，一个选关卡界面，一个游戏成功或失败的通知界面。  
