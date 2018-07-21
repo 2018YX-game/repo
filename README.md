@@ -4,7 +4,7 @@
 ## 问题和背景
 
 
-见 [需求分析文档](https://github.com/2018YX-game/repo/blob/master/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90.md)  
+见 [需求分析文档](https://github.com/2018YX-game/repo/blob/master/doc/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90.md)  
 
 
 ## 开发计划和分工
