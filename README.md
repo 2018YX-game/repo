@@ -60,11 +60,11 @@ Model和ViewModel层修改了游戏的逻辑判断。
   				- 第二轮迭代中负责APP层的组装  
   				- 第三轮迭代中负责实现Model和ViewModel层各项基本功能  
   
-  - 吕慕凡（组长） 	- 第一轮迭代中负责实现Model和ViewModel层各项基本功能  
+  - 吕慕凡（组员） 	- 第一轮迭代中负责实现Model和ViewModel层各项基本功能  
   				- 第二轮迭代中负责实现View和Window层  
   				- 第三轮迭代中负责负责APP层的组装  
   
-  - 王航宇（组长）   	- 第一轮迭代中负责APP层的组装  
+  - 王航宇（组员）   	- 第一轮迭代中负责APP层的组装  
   				- 第二轮迭代中负责实现Model和ViewModel层各项基本功能  
   				- 第三轮迭代中负责实现View和Window层  
   
